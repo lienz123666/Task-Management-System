@@ -287,8 +287,19 @@
                 <div class="mt-2 text-xs text-slate-400">软删除条数</div>
               </article>
             </div>
-            <div class="grid min-h-[220px] place-items-center rounded-xl border border-dashed border-slate-300 bg-white/60 p-10 text-slate-400">
-              图表与排行后续接入
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-12">
+              <article class="kpi-card lg:col-span-5">
+                <h3 class="chart-title">状态分布</h3>
+                <div id="chart-status"></div>
+              </article>
+              <article class="kpi-card lg:col-span-7">
+                <h3 class="chart-title">优先级</h3>
+                <div id="chart-priority"></div>
+              </article>
+              <article class="kpi-card lg:col-span-12">
+                <h3 class="chart-title">负责人排行</h3>
+                <div id="chart-assignees"></div>
+              </article>
             </div>
           </section>
 

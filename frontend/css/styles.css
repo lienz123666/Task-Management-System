@@ -64,6 +64,246 @@
   box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
 }
 
+.chart-title {
+  margin: 0 0 0.85rem;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.chart-empty {
+  display: grid;
+  min-height: 9rem;
+  place-items: center;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.chart-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+}
+
+.chart-donut {
+  width: 10.5rem;
+  height: 10.5rem;
+  flex-shrink: 0;
+}
+
+.donut-slice {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 160ms ease, filter 160ms ease;
+}
+
+.donut-slice:hover,
+.donut-slice:focus-visible {
+  filter: brightness(1.08);
+}
+
+.donut-slice.is-on {
+  stroke: #0f766e;
+  stroke-width: 2;
+}
+
+.donut-slice.is-off {
+  opacity: 0.38;
+}
+
+.chart-legend {
+  display: flex;
+  flex: 1 1 10rem;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.chart-legend-item,
+.pri-col,
+.rank-row {
+  border: 1px solid transparent;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  color: #334155;
+  font-size: 13px;
+}
+
+.chart-legend-item:hover,
+.chart-legend-item:focus-visible,
+.pri-col:hover,
+.pri-col:focus-visible,
+.rank-row:hover,
+.rank-row:focus-visible {
+  background: rgb(240 253 250 / 0.7);
+}
+
+.chart-legend-item.is-on,
+.pri-col.is-on,
+.rank-row.is-on {
+  background: #f0fdfa;
+  border-color: #99f6e4;
+  color: #115e59;
+}
+
+.chart-legend-swatch {
+  width: 0.55rem;
+  height: 0.55rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+}
+
+.chart-legend-meta {
+  margin-left: auto;
+  color: #64748b;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.chart-legend-item.is-on .chart-legend-meta,
+.rank-row.is-on .rank-rate {
+  color: #0f766e;
+}
+
+.pri-chart {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 0.75rem;
+  min-height: 11rem;
+}
+
+.pri-col {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0.65rem;
+  padding: 0.4rem 0.35rem 0.55rem;
+  min-width: 0;
+}
+
+.pri-col:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.pri-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.pri-track {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: flex-end;
+  width: 2.4rem;
+  min-height: 7rem;
+  border-radius: 0.45rem 0.45rem 0.2rem 0.2rem;
+  background: rgb(241 245 249 / 0.9);
+  overflow: hidden;
+}
+
+.pri-fill {
+  display: block;
+  width: 100%;
+  border-radius: 0.45rem 0.45rem 0.15rem 0.15rem;
+  min-height: 0;
+  transition: height 180ms ease;
+}
+
+.pri-label {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.rank-row {
+  display: grid;
+  grid-template-columns: minmax(4.5rem, 8rem) minmax(0, 1fr) 3.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.55rem;
+  padding: 0.4rem 0.55rem;
+}
+
+.rank-row--rest {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.rank-row--rest:hover,
+.rank-row--rest:focus-visible {
+  background: transparent;
+}
+
+.rank-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.rank-track {
+  position: relative;
+  height: 1.35rem;
+  border-radius: 999px;
+  background: rgb(241 245 249 / 0.95);
+  overflow: hidden;
+}
+
+.rank-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: #0f766e;
+  transition: width 180ms ease;
+}
+
+.rank-count {
+  position: absolute;
+  inset: 0 0.55rem 0 auto;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0f172a;
+  text-shadow: 0 0 6px #fff;
+}
+
+.rank-rate {
+  text-align: right;
+  font-size: 12px;
+  color: #64748b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .donut-slice,
+  .pri-fill,
+  .rank-fill {
+    transition: none;
+  }
+}
+
 .later-btn:disabled,
 .later-btn[disabled] {
   cursor: not-allowed;

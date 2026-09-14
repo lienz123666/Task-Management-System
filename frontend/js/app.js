@@ -1,5 +1,6 @@
 import { ApiError, api, request } from "./api.js";
 import { isAdmin, login, logout, restoreSession, user } from "./auth.js";
+import { initCharts, renderCharts } from "./stats.js";
 
 const STATUS_LABEL = { todo: "待办", doing: "进行中", done: "已完成" };
 const PRIORITY_LABEL = { high: "高", medium: "中", low: "低" };
@@ -15,7 +16,7 @@ const state = {
   list: { items: [], total: 0, page: 1, page_size: 20 },
   recyclePage: 1,
   recycle: { items: [], total: 0 },
-  stats: { total: 0, todo: 0, doing: 0, done: 0 },
+  stats: { total: 0, todo: 0, doing: 0, done: 0, priority: { high: 0, medium: 0, low: 0 }, assignees: [] },
   deletedCount: 0,
   drawer: { open: false, mode: "create", task: null, error: "" },
 };
@@ -333,6 +334,18 @@ async function refreshStats() {
     state.deletedCount = 0;
   }
   renderStats();
+  renderCharts(state.stats, state.filters);
+}
+
+function applyChartFilter(kind, value) {
+  const next = String(value);
+  state.filters[kind] = state.filters[kind] === next ? "" : next;
+  state.page = 1;
+  if (state.route === "workbench") {
+    refreshWorkbench();
+    return;
+  }
+  setRoute("workbench");
 }
 
 async function refreshCurrent() {
@@ -414,6 +427,8 @@ window.addEventListener("hashchange", () => {
   setRoute(location.hash.replace("#", ""));
   refreshCurrent();
 });
+
+initCharts(applyChartFilter);
 
 document.querySelectorAll("#page-workbench .chip").forEach((chip) => {
   chip.addEventListener("click", () => {
