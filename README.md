@@ -4,6 +4,8 @@
 
 远程仓库：<https://github.com/lienz123666/Task-Management-System.git>
 
+接口说明：[`docs/api.md`](docs/api.md) · 需求：[`docs/需求分析.md`](docs/需求分析.md)>
+
 ## 本地启动
 
 ```bash
@@ -53,8 +55,19 @@ uv run pytest
 每个开发阶段完成后都应补测试并跑通 `uv run pytest`，再提交。
 增删依赖用 `uv add` / `uv add --group dev` / `uv remove`，不要手改 lock 文件。
 
-## Linux 服务器部署（概要）
+## Linux 服务器部署
 
-服务器需要安装 Docker Engine 与 Compose 插件。部署步骤与本地相同：克隆本仓库、在服务器上创建 `.env`、执行 `docker compose up -d --build`。详细说明见后续 `docs/deployment.md`。
+详细步骤见 [`docs/deployment.md`](docs/deployment.md)。服务器上：
+
+```bash
+git clone https://github.com/lienz123666/Task-Management-System.git
+cd Task-Management-System
+cp .env.example .env
+# 编辑 .env：设置 JWT_SECRET、ADMIN_PASSWORD、POSTGRES_PASSWORD
+chmod +x deploy.sh
+./deploy.sh
+```
+
+对外访问 `http://<服务器>:8080`。JWT 默认 24 小时过期。故障排查见 [`docs/troubleshooting.md`](docs/troubleshooting.md)，接口约定见 [`docs/api.md`](docs/api.md)。
 
 不要把 `.env` 提交进 Git。
