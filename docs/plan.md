@@ -29,7 +29,8 @@
 每个阶段完成后必须补齐并跑通对应测试，再进入下一阶段。
 
 - 位置：`backend/tests/`，按领域分文件（`test_health.py`、`test_auth.py`、后续 `test_users.py` / `test_tasks.py` / `test_stats.py`）。
-- 运行：在 `backend/` 下执行 `pip install -r requirements-dev.txt`，再执行 `pytest`。
+- 环境：后端统一用 **uv** 管理（`backend/pyproject.toml` + `backend/uv.lock`）。安装依赖 `uv sync --group dev`，跑测试 `uv run pytest`，本地启后端 `uv run uvicorn app.main:app --reload`。Docker 镜像内同样用 uv 安装，不使用 pip / requirements.txt。
+- 运行：在 `backend/` 下执行 `uv sync --group dev`，再执行 `uv run pytest`。
 - 数据库：测试使用 SQLite 内存库，不依赖 Docker 或本机 PostgreSQL；生产与本地联调仍用 compose 中的 PostgreSQL。
 - 覆盖范围：该阶段新增/改动的接口（状态码、权限、校验、响应字段），以及相关纯函数（如密码哈希、JWT、权限判定）。
 - 阶段 1+2 已覆盖：健康检查、登录成败、`/auth/me` 鉴权、密码哈希、JWT 编解码、初始管理员引导幂等。
@@ -49,7 +50,7 @@
 目标：`docker-compose up` 起三个容器，`curl /api/health` 返回 200，浏览器能打开首页。
 
 1. 建立需求文档 2.2 的目录骨架（`backend/`、`frontend/`、`docs/`）
-2. `backend/requirements.txt`、`backend/Dockerfile`
+2. `backend/pyproject.toml`、`backend/uv.lock`、`backend/Dockerfile`（镜像内用 uv 安装依赖）
 3. `app/config.py` — pydantic-settings 读取数据库 URL、JWT 密钥与过期时间、初始管理员凭据
 4. `app/database.py` — 引擎、`SessionLocal`、`Base`
 5. `app/main.py` — 仅创建 app、挂载 health 路由、空 lifespan
