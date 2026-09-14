@@ -2,7 +2,7 @@ from sqlalchemy import case, func, select
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 
-from app.models import Task, TaskPriority, TaskStatus, utcnow
+from app.models import Task, TaskPriority, TaskStatus, User, utcnow
 
 PRIORITY_ORDER = case(
     (Task.priority == TaskPriority.high, 0),
@@ -68,20 +68,52 @@ def list_tasks(
     return items, total
 
 
-def stats(db: Session) -> dict[str, int]:
-    counts = {status.value: 0 for status in TaskStatus}
-    rows = db.execute(
+def stats(db: Session) -> dict:
+    status_counts = {status.value: 0 for status in TaskStatus}
+    for status, count in db.execute(
         select(Task.status, func.count())
         .where(Task.deleted_at.is_(None))
         .group_by(Task.status)
-    )
-    for status, count in rows:
-        counts[status.value] = count
+    ):
+        status_counts[status.value] = count
+
+    priority_counts = {priority.value: 0 for priority in TaskPriority}
+    for priority, count in db.execute(
+        select(Task.priority, func.count())
+        .where(Task.deleted_at.is_(None))
+        .group_by(Task.priority)
+    ):
+        priority_counts[priority.value] = count
+
+    by_user: dict[int, dict] = {}
+    for user_id, username, status, count in db.execute(
+        select(User.id, User.username, Task.status, func.count(Task.id))
+        .join(Task, Task.assignee_id == User.id)
+        .where(Task.deleted_at.is_(None))
+        .group_by(User.id, User.username, Task.status)
+    ):
+        item = by_user.setdefault(
+            user_id,
+            {
+                "user_id": user_id,
+                "username": username,
+                "count": 0,
+                "todo": 0,
+                "doing": 0,
+                "done": 0,
+            },
+        )
+        item[status.value] = count
+        item["count"] += count
+
+    assignees = sorted(by_user.values(), key=lambda row: (-row["count"], row["username"]))
     return {
-        "total": sum(counts.values()),
-        "todo": counts[TaskStatus.todo.value],
-        "doing": counts[TaskStatus.doing.value],
-        "done": counts[TaskStatus.done.value],
+        "total": sum(status_counts.values()),
+        "todo": status_counts[TaskStatus.todo.value],
+        "doing": status_counts[TaskStatus.doing.value],
+        "done": status_counts[TaskStatus.done.value],
+        "priority": priority_counts,
+        "assignees": assignees,
     }
 
 

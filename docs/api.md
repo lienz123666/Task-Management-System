@@ -175,8 +175,19 @@ JWT 有效期由 `JWT_EXPIRE_HOURS` 决定，默认 **24 小时**。登录响应
 已登录即可。始终统计**全库未删除**任务，不受列表过滤、分页、`include_deleted` 影响。
 
 ```json
-{ "total": 10, "todo": 4, "doing": 3, "done": 3 }
+{
+  "total": 10,
+  "todo": 4,
+  "doing": 3,
+  "done": 3,
+  "priority": { "high": 2, "medium": 5, "low": 3 },
+  "assignees": [
+    { "user_id": 1, "username": "alice", "count": 4, "todo": 1, "doing": 1, "done": 2 }
+  ]
+}
 ```
+
+`priority` 为三种优先级的未删任务数。`assignees` 只含未删任务数大于 0 的人，按件数降序、同数按用户名；每人带 `todo` / `doing` / `done` 便于看板排行计算完成率。查询参数不影响本接口。
 
 ---
 

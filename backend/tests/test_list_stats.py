@@ -161,7 +161,26 @@ def test_stats_exclude_deleted_and_ignore_list_filters(
     client.delete(f"/api/tasks/{gone['id']}", headers=auth(admin_token))
 
     stats = client.get("/api/stats", headers=auth(admin_token)).json()
-    assert stats == {"total": 3, "todo": 1, "doing": 1, "done": 1}
+    assert stats["total"] == 3
+    assert stats["todo"] == 1
+    assert stats["doing"] == 1
+    assert stats["done"] == 1
+    assert stats["priority"] == {"high": 1, "medium": 1, "low": 1}
+    by_user = {row["username"]: row for row in stats["assignees"]}
+    assert set(by_user) == {"admin", "alice"}
+    assert by_user["admin"]["count"] == 2
+    assert by_user["admin"]["todo"] == 1
+    assert by_user["admin"]["doing"] == 0
+    assert by_user["admin"]["done"] == 1
+    assert by_user["alice"] == {
+        "user_id": alice["id"],
+        "username": "alice",
+        "count": 1,
+        "todo": 0,
+        "doing": 1,
+        "done": 0,
+    }
+    assert [row["username"] for row in stats["assignees"]] == ["admin", "alice"]
 
     filtered_stats = client.get(
         f"/api/stats?status=done&include_deleted=true&assignee={alice['id']}",
