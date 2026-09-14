@@ -140,8 +140,10 @@
 1. `js/api.js` — fetch 封装，统一注入 `Authorization` 头，遇 401 跳回登录
 2. `js/auth.js` — 登录、token 存取（localStorage）、当前用户信息缓存
 3. `index.html` + `css/styles.css` — 登录视图与主视图
-4. `js/app.js` — 任务列表渲染（过滤器、分页控件）、创建 / 编辑表单（负责人下拉来自 `GET /api/users`）、删除确认、统计数字区
-5. 按角色控制界面：非管理员隐藏创建用户入口；他人负责的任务不显示编辑与删除按钮
+4. `js/app.js` — 任务列表、筛选分页、创建/编辑单据、删除确认
+5. `js/stats.js` — 状态环、优先级柱、负责人横条同时展示；点击分别写入对应筛选
+6. 按角色控制界面：非管理员隐藏创建用户入口；他人负责的任务不显示编辑/删除
+7. 实现前按 `docs/frontend-design.md`。`GET /api/stats` 需补充 `priority` 与 `assignees` 聚合（仍排除已删、仍不受列表过滤影响），旧字段 `total/todo/doing/done` 保留。
 
 验收：完整走通管理员登录 → 创建 member → 创建任务 → member 登录 → 仅能改动自己负责的任务。
 

@@ -4,27 +4,109 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>员工任务管理系统</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <main class="panel">
+    <div id="view-login" class="login-sheet">
       <h1>员工任务管理系统</h1>
-      <p>界面开发中。此页用于验证 nginx 到后端的 /api 反向代理是否连通。</p>
-      <div id="status" class="status">正在检查后端…</div>
-    </main>
+      <p class="lead">用已有账号进入工单台。没有账号请找管理员。</p>
+      <form id="login-form">
+        <label>
+          用户名
+          <input id="login-username" name="username" autocomplete="username" required />
+        </label>
+        <label>
+          密码
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+        </label>
+        <button type="submit">登录</button>
+        <p id="login-error" class="form-error" hidden></p>
+      </form>
+    </div>
 
-    <script>
-      const el = document.getElementById("status");
-      fetch("/api/health")
-        .then((res) => res.json().then((body) => ({ ok: res.ok, body })))
-        .then(({ ok, body }) => {
-          el.classList.add(ok ? "ok" : "error");
-          el.textContent = `GET /api/health → ${JSON.stringify(body)}`;
-        })
-        .catch((err) => {
-          el.classList.add("error");
-          el.textContent = `后端不可达：${err.message}`;
-        });
-    </script>
+    <div id="view-app" hidden>
+      <header class="topbar">
+        <p class="brand">员工任务管理系统</p>
+        <div class="topbar-actions">
+          <button id="btn-add-user" type="button" hidden>添加成员</button>
+          <span id="current-user"></span>
+          <button id="btn-logout" type="button">退出</button>
+        </div>
+      </header>
+
+      <section class="stats-band" aria-label="任务统计">
+        <p id="stats-total" class="stats-total">0件</p>
+        <div class="stats-grid">
+          <div class="chart-block">
+            <h2>状态</h2>
+            <div id="chart-status" class="chart-canvas"></div>
+            <div id="legend-status" class="chart-legend"></div>
+          </div>
+          <div class="chart-block">
+            <h2>优先级</h2>
+            <div id="chart-priority" class="chart-canvas"></div>
+            <div id="legend-priority" class="chart-legend"></div>
+          </div>
+          <div class="chart-block chart-block-wide">
+            <h2>负责人</h2>
+            <div id="chart-assignee" class="chart-canvas"></div>
+            <div id="legend-assignee" class="chart-legend"></div>
+          </div>
+        </div>
+        <p id="chart-tip" class="chart-tip" hidden></p>
+      </section>
+
+      <div id="workbench" class="workbench">
+        <section class="ledger" aria-label="任务台账">
+          <div class="filters">
+            <label>
+              状态
+              <select id="filter-status">
+                <option value="">全部</option>
+                <option value="todo">待办</option>
+                <option value="doing">进行中</option>
+                <option value="done">已完成</option>
+              </select>
+            </label>
+            <label>
+              优先级
+              <select id="filter-priority">
+                <option value="">全部</option>
+                <option value="high">高</option>
+                <option value="medium">中</option>
+                <option value="low">低</option>
+              </select>
+            </label>
+            <label>
+              负责人
+              <select id="filter-assignee">
+                <option value="">全部</option>
+              </select>
+            </label>
+            <label id="filter-deleted-wrap" hidden>
+              <input id="filter-deleted" type="checkbox" />
+              含已删除
+            </label>
+            <button id="btn-new-task" type="button">新建任务</button>
+          </div>
+          <p id="list-error" class="form-error" hidden></p>
+          <ul id="task-list" class="task-list"></ul>
+          <nav id="pager" class="pager" aria-label="分页"></nav>
+        </section>
+
+        <section id="sheet" class="sheet" aria-label="任务单据">
+          <button id="btn-back" type="button" class="back-list">返回列表</button>
+          <div id="sheet-body"></div>
+        </section>
+      </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
   </body>
 </html>
