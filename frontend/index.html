@@ -163,7 +163,11 @@
                   <button type="button" class="chip" data-filter="priority" data-value="medium">中</button>
                   <button type="button" class="chip" data-filter="priority" data-value="low">低</button>
                 </div>
-                <select id="filter-assignee" class="rounded-lg border border-slate-200 bg-slate-100 px-2 py-1.5 text-[13px] outline-none"></select>
+                <div class="ui-select-shell">
+                  <span class="px-1 text-xs text-slate-500">负责人</span>
+                  <label class="sr-only" for="filter-assignee">负责人</label>
+                  <select id="filter-assignee" class="ui-select"></select>
+                </div>
               </div>
               <button id="btn-reset-filters" type="button" class="inline-flex items-center gap-1 rounded-lg px-2 py-1.5 text-xs text-slate-600 hover:bg-slate-100">
                 <span class="material-symbols-outlined text-sm">restart_alt</span>重置
@@ -184,7 +188,7 @@
             <div class="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3">
               <span id="pager-info" class="text-slate-500">共 0 条</span>
               <div class="flex items-center gap-2">
-                <select id="page-size" class="rounded-lg border border-slate-200 bg-slate-100 px-2 py-1 text-xs">
+                <select id="page-size" class="ui-select ui-select--sm">
                   <option value="10">10条/页</option>
                   <option value="20" selected>20条/页</option>
                   <option value="50">50条/页</option>
@@ -239,12 +243,18 @@
                   <button type="button" disabled class="later-btn rounded px-3 py-1 text-[13px]" data-later="时间段统计后续接入">本周</button>
                   <button type="button" disabled class="later-btn rounded bg-slate-200 px-3 py-1 text-[13px]" data-later="时间段统计后续接入">本月</button>
                 </div>
-                <select disabled class="later-btn rounded-lg border border-slate-200 bg-slate-100 px-3 py-1.5 text-slate-400" title="后续接入">
-                  <option>全公司部门（后续接入）</option>
-                </select>
-                <select disabled class="later-btn rounded-lg border border-slate-200 bg-slate-100 px-3 py-1.5 text-slate-400" title="后续接入">
-                  <option>负责人: 全部（后续接入）</option>
-                </select>
+                <div class="ui-select-shell" title="后续接入">
+                  <span class="material-symbols-outlined ui-select-icon">apartment</span>
+                  <select disabled class="later-btn ui-select">
+                    <option>全部部门</option>
+                  </select>
+                </div>
+                <div class="ui-select-shell" title="后续接入">
+                  <span class="material-symbols-outlined ui-select-icon">person</span>
+                  <select disabled class="later-btn ui-select">
+                    <option>全部负责人</option>
+                  </select>
+                </div>
                 <button type="button" disabled class="later-btn inline-flex items-center gap-1 rounded-lg bg-slate-900 px-3 py-1.5 text-white/70" data-later="导出报表后续接入">
                   <span class="material-symbols-outlined text-sm">download</span>导出分析报表
                 </button>
@@ -351,7 +361,7 @@
           <div class="grid grid-cols-2 gap-3">
             <label class="block">
               <span class="mb-1 block font-semibold">当前状态</span>
-              <select id="form-status" class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2">
+              <select id="form-status" class="ui-select w-full">
                 <option value="todo">待办</option>
                 <option value="doing">进行中</option>
                 <option value="done">已完成</option>
@@ -359,7 +369,7 @@
             </label>
             <label class="block">
               <span class="mb-1 block font-semibold">指派负责人</span>
-              <select id="form-assignee" class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2"></select>
+              <select id="form-assignee" class="ui-select w-full"></select>
             </label>
           </div>
           <div>
@@ -404,7 +414,7 @@
         <label class="mt-3 block"><span class="mb-1 block text-sm font-medium">密码</span><input id="new-password" type="password" required class="h-10 w-full rounded-lg border border-slate-200 px-3" /></label>
         <label class="mt-3 block">
           <span class="mb-1 block text-sm font-medium">角色</span>
-          <select id="new-role" class="h-10 w-full rounded-lg border border-slate-200 px-3">
+          <select id="new-role" class="ui-select h-10 w-full">
             <option value="member">普通成员</option>
             <option value="admin">管理员</option>
           </select>

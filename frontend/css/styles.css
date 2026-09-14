@@ -84,3 +84,94 @@
 .task-row:hover {
   background: rgb(240 253 250 / 0.5);
 }
+
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.6' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.65rem center !important;
+  background-size: 1rem 1rem !important;
+  padding-right: 2.15rem !important;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  print-color-adjust: exact;
+}
+
+select:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+select:focus {
+  border-color: #0f766e;
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(15 118 110 / 0.18);
+}
+
+select option {
+  padding: 0.45rem 0.75rem;
+  line-height: 1.6;
+  color: #0f172a;
+  background: #fff;
+}
+
+.ui-select {
+  min-height: 2.25rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  padding-left: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.ui-select--sm {
+  min-height: 1.9rem;
+  min-width: 7.5rem;
+  font-size: 12px;
+}
+
+.ui-select-shell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  min-width: 11.5rem;
+  max-width: 16rem;
+  padding: 0.15rem 0.1rem 0.15rem 0.55rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(226 232 240 / 0.9);
+  background: rgb(241 245 249 / 0.95);
+}
+
+.ui-select-shell .ui-select-icon {
+  flex-shrink: 0;
+  color: #64748b;
+  font-size: 18px;
+}
+
+.ui-select-shell select {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 1.9rem;
+  border: 0;
+  background-color: transparent;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: 0.15rem;
+  box-shadow: none;
+}
+
+.ui-select-shell select:focus {
+  box-shadow: none;
+}

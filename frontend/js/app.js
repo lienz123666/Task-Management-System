@@ -72,7 +72,7 @@ function setRoute(route) {
 function fillAssigneeSelect(select, includeAll) {
   const current = select.value;
   select.replaceChildren();
-  if (includeAll) select.append(new Option("负责人: 全部成员", ""));
+  if (includeAll) select.append(new Option("全部成员", ""));
   state.users.forEach((item) => {
     const label = item.id === user().id ? `${item.username}（我）` : item.username;
     select.append(new Option(label, String(item.id)));
