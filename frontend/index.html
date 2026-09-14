@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>员工任务管理系统</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <h1>员工任务管理系统</h1>
+      <p>界面开发中。此页用于验证 nginx 到后端的 /api 反向代理是否连通。</p>
+      <div id="status" class="status">正在检查后端…</div>
+    </main>
+
+    <script>
+      const el = document.getElementById("status");
+      fetch("/api/health")
+        .then((res) => res.json().then((body) => ({ ok: res.ok, body })))
+        .then(({ ok, body }) => {
+          el.classList.add(ok ? "ok" : "error");
+          el.textContent = `GET /api/health → ${JSON.stringify(body)}`;
+        })
+        .catch((err) => {
+          el.classList.add("error");
+          el.textContent = `后端不可达：${err.message}`;
+        });
+    </script>
+  </body>
+</html>
