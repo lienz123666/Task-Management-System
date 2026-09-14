@@ -131,6 +131,8 @@
 
 验收：造 6~8 条不同优先级与创建时间的任务，确认排序为「high 在前、同级新的在前」；确认带 `include_deleted` 时 `/api/stats` 数字不变。
 
+测试：`backend/tests/test_list_stats.py` 覆盖登录校验、默认排除已删、过滤 AND、优先级排序、分页、`page_size>100` 的 422、成员 `include_deleted` 的 403，以及统计不受过滤和已删影响。
+
 ---
 
 ## 6. 前端

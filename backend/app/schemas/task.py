@@ -102,3 +102,17 @@ class TaskOut(BaseModel):
     created_at: datetime
     updated_at: datetime
     deleted_at: datetime | None = None
+
+
+class TaskListOut(BaseModel):
+    items: list[TaskOut]
+    total: int
+    page: int
+    page_size: int
+
+
+class StatsOut(BaseModel):
+    total: int
+    todo: int
+    doing: int
+    done: int

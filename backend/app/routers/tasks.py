@@ -1,13 +1,14 @@
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, Query, status
 
 from app.crud import task as crud_task
 from app.crud import user as crud_user
 from app.deps import CurrentUser, DbSession
-from app.models import Role, Task, User
+from app.models import Role, Task, TaskPriority, TaskStatus, User
 from app.permissions import can_mutate_task
-from app.schemas.task import TaskCreate, TaskOut, TaskPatch, TaskPut
+from app.schemas.task import StatsOut, TaskCreate, TaskListOut, TaskOut, TaskPatch, TaskPut
 
 router = APIRouter(prefix="/tasks", tags=["tasks"])
+stats_router = APIRouter(tags=["stats"])
 
 
 def _task_out(task: Task) -> TaskOut:
@@ -67,6 +68,39 @@ def create_task(payload: TaskCreate, _: CurrentUser, db: DbSession) -> TaskOut:
         status=payload.status,
     )
     return _task_out(task)
+
+
+@router.get("", response_model=TaskListOut)
+def list_tasks(
+    current_user: CurrentUser,
+    db: DbSession,
+    status_filter: TaskStatus | None = Query(default=None, alias="status"),
+    priority: TaskPriority | None = None,
+    assignee: int | None = Query(default=None, ge=1),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=100),
+    include_deleted: bool = False,
+) -> TaskListOut:
+    if include_deleted and current_user.role is not Role.admin:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="仅管理员可查看已删除任务",
+        )
+    items, total = crud_task.list_tasks(
+        db,
+        status=status_filter,
+        priority=priority,
+        assignee_id=assignee,
+        include_deleted=include_deleted,
+        page=page,
+        page_size=page_size,
+    )
+    return TaskListOut(
+        items=[_task_out(task) for task in items],
+        total=total,
+        page=page,
+        page_size=page_size,
+    )
 
 
 @router.get("/{task_id}", response_model=TaskOut)
@@ -132,3 +166,8 @@ def delete_task(task_id: int, current_user: CurrentUser, db: DbSession) -> None:
     task = _get_active_task(db, task_id)
     _require_mutate(current_user, task)
     crud_task.soft_delete(db, task)
+
+
+@stats_router.get("/stats", response_model=StatsOut)
+def read_stats(_: CurrentUser, db: DbSession) -> StatsOut:
+    return StatsOut(**crud_task.stats(db))
