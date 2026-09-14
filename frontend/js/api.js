@@ -53,7 +53,7 @@ export async function request(method, path, body) {
     }
   }
 
-  if (response.status === 401) {
+  if (response.status === 401 && path !== "/api/auth/login") {
     clearToken();
     throw new ApiError(401, "未认证或登录已失效");
   }

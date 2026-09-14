@@ -1,0 +1,2093 @@
+<!-- 任务统计看板 - 灰蓝绿毛玻璃版 -->
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-primary":"#80d5cb","background":"#f1f5f9","on-tertiary":"#ffffff","surface-dim":"#cbd5e1","secondary-fixed-dim":"#94a3b8","surface-container":"#e2e8f0","tertiary":"#0f766e","primary":"#1e293b","outline":"#64748b","on-secondary-container":"#0f172a","on-secondary-fixed":"#0f172a","on-error":"#ffffff","secondary-fixed":"#e2e8f0","surface":"#f8fafc","on-secondary":"#ffffff","tertiary-container":"#0d9488","surface-container-high":"#e2e8f0","on-surface-variant":"#475569","on-tertiary-container":"#ccfbf1","error-container":"#fee2e2","on-primary-fixed":"#0f172a","on-primary-container":"#f8fafc","on-secondary-fixed-variant":"#334155","inverse-on-surface":"#f8fafc","secondary":"#475569","tertiary-fixed":"#99f6e4","surface-container-lowest":"#ffffff","surface-variant":"#cbd5e1","secondary-container":"#cbd5e1","outline-variant":"#cbd5e1","primary-container":"#0f766e","surface-container-highest":"#cbd5e1","on-surface":"#0f172a","on-error-container":"#991b1b","surface-bright":"#f8fafc","surface-container-low":"#f8fafc","error":"#b91c1c","on-primary":"#ffffff","inverse-surface":"#1e293b","on-background":"#0f172a","on-tertiary-fixed":"#042f2e","surface-tint":"#0f766e","tertiary-fixed-dim":"#5eead4","primary-fixed-dim":"#94a3b8","on-tertiary-fixed-variant":"#115e59","on-primary-fixed-variant":"#334155","primary-fixed":"#e2e8f0"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","gutter":"1rem","space-xl":"1.5rem","space-lg":"1rem","margin":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem"},fontFamily:{"code-sm":["JetBrains Mono"],"headline-sm":["Inter"],"code-xs":["JetBrains Mono"],"body-md":["Inter"],"display-lg":["Inter"],"display-sm":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"body-lg":["Inter"],"label-sm":["Inter"]},fontSize:{"code-sm":["12px",{"lineHeight":"16px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"code-xs":["10px",{"lineHeight":"14px","letterSpacing":"0em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.025em","fontWeight":"700"}],"display-sm":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"500"}],"body-lg":["15px",{"lineHeight":"22px","letterSpacing":"-0.005em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-slate-100/80 font-body-md text-body-md text-slate-800"><header class="fixed top-0 left-0 right-0 h-14 bg-white/80 backdrop-blur-md border-b border-slate-200/80 z-50 flex items-center justify-between px-space-lg shadow-sm"><div class="flex items-center gap-space-md"><img alt="TaskPulse Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WuvWjcMtPS6UuMrm7513h7lolopnF2uzx3aT9N2tjrVtM_ncQpI9F5On3JrkvG7MarbV5QgLoOGUHcefwZZt9nO1uXQl3Yt13yF-u0quZUES6YarJYAoW4_w8DKZqm32mgBVnWqZTKdVtROOVrxxqPIYHqlsQtoeU09yDOjbz4OtlfcQKZXOoBYT08L2k7BmrJMAef7EjrylR4_OKCLPqeDyyspXLQQyyLLhgyd5aAzkQunFxqWY2yuwk"/><span class="font-headline-sm text-headline-sm text-slate-900 tracking-tight">TaskPulse 员工任务管理系统</span><span class="px-space-sm py-space-xs rounded-full bg-teal-50 border border-teal-200/60 text-teal-800 font-label-sm text-label-sm">v2.4.0 企业版</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-label-sm text-label-sm"><span class="material-symbols-outlined text-label-sm text-slate-500">admin_panel_settings</span><span>系统管理员 (Admin)</span></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpJ2vqYO__7ZjV2hoANLifkdq37N-yhP6EW_IQnpsmG5O6LZJnI8fXyUnwiUsd-csmhtwLfPldE620gB10FutSs7YaKGMTy6zmqw7lnTrhphLlr2OHJppIKlrawg1cFZ6akz1BZmA3ytWSO6_flxYhC7tJoyFwVM3Nr_Fb7AL4Bb-MhAztkp2xcolrGB6uZmJZZ0FPAoNz7N9ziotKp1PX-eDAIs4zgWZG2wZH8VLnYXOXtVhotcHHFA"/><div class="flex flex-col text-left"><span class="font-label-md text-label-md text-slate-900 leading-none">陈雅雯 (Eva Chen)</span><span class="font-body-sm text-body-sm text-slate-500 leading-none mt-space-xs">研发效能部 / 总监</span></div></div><div class="h-5 w-px bg-slate-200"></div><button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-slate-100 border border-slate-200/80 text-slate-600 hover:bg-rose-50 hover:text-rose-700 hover:border-rose-200 transition-colors font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-label-md">logout</span><span>退出登录</span></button></div></header><aside class="fixed left-0 top-14 bottom-0 w-64 bg-slate-50/90 backdrop-blur-md border-r border-slate-200/80 z-40 flex flex-col justify-between py-space-lg px-space-md"><div class="flex flex-col gap-space-lg"><div class="px-space-sm"><span class="font-label-sm text-label-sm text-slate-400 uppercase tracking-wider font-semibold">核心业务模块</span></div><nav class="flex flex-col gap-space-xs"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-slate-600 hover:bg-slate-200/60 hover:text-slate-900 transition-colors font-label-md text-label-md" data-path="task-workbench" href="#"><span class="material-symbols-outlined text-headline-sm text-slate-500">task_alt</span><span>任务工作台</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-colors bg-teal-800 text-white font-label-md text-label-md rounded-lg shadow-sm" data-path="analytics-dashboard" href="#"><span class="material-symbols-outlined text-headline-sm text-teal-200">monitoring</span><span>任务统计看板</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-slate-600 hover:bg-slate-200/60 hover:text-slate-900 transition-colors font-label-md text-label-md" data-path="user-management" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-headline-sm text-slate-500">manage_accounts</span><span>用户与权限管理</span></div><span class="px-space-xs py-0.5 rounded bg-slate-200 text-slate-600 font-code-xs text-code-xs uppercase">Admin</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-slate-600 hover:bg-slate-200/60 hover:text-slate-900 transition-colors font-label-md text-label-md" data-path="recycle-bin" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-headline-sm text-slate-500">delete_sweep</span><span>已删除任务视图</span></div><span class="px-space-xs py-0.5 rounded bg-slate-200 text-slate-600 font-code-xs text-code-xs uppercase">Admin</span></a></nav></div><div class="flex flex-col gap-space-xs p-space-md rounded-xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-slate-500">系统运行状态</span><span class="flex h-2 w-2 rounded-full bg-teal-600"></span></div><span class="font-code-sm text-code-sm text-slate-800 font-medium">Cloud Engine: OK</span><span class="font-body-sm text-body-sm text-slate-500">数据同步延迟 &lt; 12ms</span></div></aside><div class="pl-64"><main class="w-full pt-14 px-space-xl pb-space-xl bg-slate-100/70"><div class="flex flex-col w-full gap-space-xl">
+<!-- Top Bar: Filters & Actions -->
+<div class="flex flex-wrap items-center justify-between gap-space-md p-space-lg rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm">
+<div class="flex flex-wrap items-center gap-space-md">
+<!-- Breadcrumb & Title Hint -->
+<div class="flex items-center gap-space-xs pr-space-md border-r border-slate-200/80">
+<span class="material-symbols-outlined text-teal-800 text-headline-lg">monitoring</span>
+<div>
+<span class="font-headline-sm text-headline-sm text-slate-900">任务统计看板</span>
+<span class="font-body-sm text-body-sm text-slate-500 block">全局团队任务流转、效能负荷与交付指标实时监控</span>
+</div>
+</div>
+<!-- Timeframe Tabs -->
+<div class="flex items-center p-space-xs rounded-lg bg-slate-100 border border-slate-200/60 text-slate-600" id="period-selector">
+<button class="px-space-md py-1 rounded font-label-md text-label-md text-slate-600 hover:text-slate-900 transition-colors" onclick="switchPeriod(this, '本日')" type="button">本日</button>
+<button class="px-space-md py-1 rounded font-label-md text-label-md bg-teal-800 text-white shadow-sm" onclick="switchPeriod(this, '本周')" type="button">本周</button>
+<button class="px-space-md py-1 rounded font-label-md text-label-md text-slate-600 hover:text-slate-900 transition-colors" onclick="switchPeriod(this, '本月')" type="button">本月</button>
+<button class="px-space-md py-1 rounded font-label-md text-label-md text-slate-600 hover:text-slate-900 transition-colors" onclick="switchPeriod(this, '季度')" type="button">季度</button>
+<button class="px-space-md py-1 rounded font-label-md text-label-md text-slate-600 hover:text-slate-900 transition-colors" onclick="switchPeriod(this, '全年')" type="button">全年</button>
+</div>
+<!-- Filters Dropdowns -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-slate-100/90 border border-slate-200/70 text-slate-800">
+<span class="material-symbols-outlined text-body-md text-slate-400">apartment</span>
+<select class="bg-transparent font-body-sm text-body-sm text-slate-700 focus:outline-none cursor-pointer" id="dept-filter" onchange="applyFilters()">
+<option value="all">全公司部门 (全部)</option>
+<option selected="" value="rd">研发效能部</option>
+<option value="prod">产品策划部</option>
+<option value="ops">运维基础设施</option>
+<option value="qa">质量保障部</option>
+</select>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-slate-100/90 border border-slate-200/70 text-slate-800">
+<span class="material-symbols-outlined text-body-md text-slate-400">group</span>
+<select class="bg-transparent font-body-sm text-body-sm text-slate-700 focus:outline-none cursor-pointer" id="owner-filter" onchange="applyFilters()">
+<option selected="" value="all">所有负责人 (全员)</option>
+<option value="eva">陈雅雯 (Eva)</option>
+<option value="jack">张子涵 (Jack)</option>
+<option value="leo">李明辉 (Leo)</option>
+<option value="claire">王静 (Claire)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Actions: Export & Refresh -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-slate-100 border border-slate-200/60 text-slate-600 font-code-sm text-code-sm">
+<span class="h-2 w-2 rounded-full bg-teal-600"></span>
+<span id="update-timestamp">已同步: 刚刚 15:42</span>
+</div>
+<div class="relative inline-block text-left">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition-colors font-label-md text-label-md shadow-sm" onclick="toggleExportMenu()" type="button">
+<span class="material-symbols-outlined text-body-md text-teal-300">download</span>
+<span>导出分析报表</span>
+<span class="material-symbols-outlined text-body-sm">expand_more</span>
+</button>
+<div class="hidden absolute right-0 mt-space-xs w-48 rounded-lg bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl z-30 p-space-xs" id="export-dropdown">
+<button class="flex items-center gap-space-sm w-full px-space-md py-space-xs text-left rounded hover:bg-slate-100 text-slate-700 font-body-sm text-body-sm" onclick="exportData('excel')" type="button">
+<span class="material-symbols-outlined text-teal-700 text-headline-sm">table_view</span>
+<span>导出为 Excel (.xlsx)</span>
+</button>
+<button class="flex items-center gap-space-sm w-full px-space-md py-space-xs text-left rounded hover:bg-slate-100 text-slate-700 font-body-sm text-body-sm" onclick="exportData('pdf')" type="button">
+<span class="material-symbols-outlined text-rose-700 text-headline-sm">picture_as_pdf</span>
+<span>导出效能简报 (.PDF)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- KPI Cards Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-space-lg">
+<!-- Card 1: 任务总数 -->
+<div class="relative overflow-hidden p-space-lg rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm hover:border-slate-300 transition-all group">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-slate-500 font-medium">任务总数 (All Tasks)</span>
+<div class="p-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200/60">
+<span class="material-symbols-outlined text-headline-sm">fact_check</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-slate-900 font-bold">142</span>
+<span class="font-body-sm text-body-sm text-slate-400">项</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-xs font-code-xs text-code-xs text-teal-700 font-medium">
+<span class="material-symbols-outlined text-body-sm">trending_up</span>
+<span>本周新增 +12 项任务</span>
+</div>
+</div>
+<!-- Card 2: 待办任务 -->
+<div class="relative overflow-hidden p-space-lg rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm hover:border-slate-300 transition-all group">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-slate-500 font-medium">待办状态 (Pending)</span>
+<div class="p-1.5 rounded-lg bg-slate-100 text-slate-600 border border-slate-200/60">
+<span class="material-symbols-outlined text-headline-sm">pending_actions</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-slate-800 font-bold">38</span>
+<span class="font-body-sm text-body-sm text-slate-400">项</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-xs font-label-sm text-label-sm text-slate-500">
+<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+<span>占比 26.8% · 需排期跟进</span>
+</div>
+</div>
+<!-- Card 3: 进行中任务 -->
+<div class="relative overflow-hidden p-space-lg rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm hover:border-slate-300 transition-all group">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-slate-500 font-medium">进行中 (In Progress)</span>
+<div class="p-1.5 rounded-lg bg-slate-200/70 text-slate-800 border border-slate-300/60">
+<span class="material-symbols-outlined text-headline-sm">rocket_launch</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-slate-800 font-bold">54</span>
+<span class="font-body-sm text-body-sm text-slate-400">项</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-xs font-label-sm text-label-sm text-slate-600 font-medium">
+<span class="h-1.5 w-1.5 rounded-full bg-slate-600"></span>
+<span>活跃推进中 · 9个迭代项</span>
+</div>
+</div>
+<!-- Card 4: 已完成任务 -->
+<div class="relative overflow-hidden p-space-lg rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm hover:border-slate-300 transition-all group">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-slate-500 font-medium">已完成 (Completed)</span>
+<div class="p-1.5 rounded-lg bg-teal-50 text-teal-800 border border-teal-200/70">
+<span class="material-symbols-outlined text-headline-sm">check_circle</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-teal-800 font-bold">46</span>
+<span class="font-body-sm text-body-sm text-slate-400">项</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-xs font-code-xs text-code-xs text-teal-700 font-medium">
+<span class="material-symbols-outlined text-body-sm">done_all</span>
+<span>周期达成率 72.4%</span>
+</div>
+</div>
+<!-- Card 5: 软删除归档 -->
+<div class="relative overflow-hidden p-space-lg rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm hover:border-slate-300 transition-all group">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-slate-500 font-medium">已归档回收 (Recycled)</span>
+<div class="p-1.5 rounded-lg bg-rose-50 text-rose-700 border border-rose-200/70">
+<span class="material-symbols-outlined text-headline-sm">delete_sweep</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-slate-700 font-bold">4</span>
+<span class="font-body-sm text-body-sm text-slate-400">项</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-xs font-label-sm text-label-sm text-slate-500">
+<span class="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200/60 font-code-xs text-code-xs text-slate-600">Admin 可恢复</span>
+</div>
+</div>
+</div>
+<!-- Main Visual Charts Grid (Row 1: Donut Distribution & Stacked Priority) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Chart 1: 任务状态分布 (Donut Chart) - 5 cols -->
+<div class="lg:col-span-5 flex flex-col p-space-xl rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm">
+<div class="flex items-center justify-between mb-space-lg">
+<div>
+<span class="font-headline-sm text-headline-sm text-slate-900">任务生命周期状态分布</span>
+<span class="font-body-sm text-body-sm text-slate-500 block mt-0.5">全量 142 个工单流动占比</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-body-md" title="数据基于当期筛选">pie_chart</span>
+</div>
+<!-- SVG Donut Chart with Center Metric -->
+<div class="flex flex-col sm:flex-row items-center justify-around gap-space-lg my-auto py-space-md">
+<div class="relative w-48 h-48 flex items-center justify-center flex-shrink-0">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<!-- Background circle -->
+<circle class="text-slate-100" cx="50" cy="50" fill="transparent" r="38" stroke="currentColor" stroke-width="12"></circle>
+<!-- Segment 1: In Progress (38.0% = 90.7px) - Slate Blue/Gray #475569 -->
+<circle class="transition-all duration-700 hover:stroke-[14]" cx="50" cy="50" fill="transparent" r="38" stroke="#475569" stroke-dasharray="90.7 238.7" stroke-dashoffset="0" stroke-width="12"></circle>
+<!-- Segment 2: Completed (32.4% = 77.3px) - Teal / Sage Green #0f766e -->
+<circle class="transition-all duration-700 hover:stroke-[14]" cx="50" cy="50" fill="transparent" r="38" stroke="#0f766e" stroke-dasharray="77.3 238.7" stroke-dashoffset="-90.7" stroke-width="12"></circle>
+<!-- Segment 3: Pending (26.8% = 64.0px) - Sage / Mint #2dd4bf -->
+<circle class="transition-all duration-700 hover:stroke-[14]" cx="50" cy="50" fill="transparent" r="38" stroke="#2dd4bf" stroke-dasharray="64.0 238.7" stroke-dashoffset="-168.0" stroke-width="12"></circle>
+<!-- Segment 4: Recycled (2.8% = 6.7px) - Slate Light #cbd5e1 -->
+<circle class="transition-all duration-700 hover:stroke-[14]" cx="50" cy="50" fill="transparent" r="38" stroke="#94a3b8" stroke-dasharray="6.7 238.7" stroke-dashoffset="-232.0" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center text-center pointer-events-none">
+<span class="font-headline-lg text-headline-lg text-slate-900 font-bold">142</span>
+<span class="font-code-xs text-code-xs text-slate-400 uppercase tracking-wider">总任务数</span>
+</div>
+</div>
+<!-- Legend and details -->
+<div class="flex flex-col gap-space-sm w-full max-w-[210px]">
+<div class="flex items-center justify-between p-space-xs rounded hover:bg-slate-100/80 transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="h-3 w-3 rounded-sm bg-slate-600"></span>
+<span class="font-body-sm text-body-sm text-slate-700">进行中 (活跃)</span>
+</div>
+<div class="text-right">
+<span class="font-code-sm text-code-sm font-semibold text-slate-900">54</span>
+<span class="font-code-xs text-code-xs text-slate-400 ml-1">38.0%</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded hover:bg-slate-100/80 transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="h-3 w-3 rounded-sm bg-teal-700"></span>
+<span class="font-body-sm text-body-sm text-slate-700">已完成验收</span>
+</div>
+<div class="text-right">
+<span class="font-code-sm text-code-sm font-semibold text-slate-900">46</span>
+<span class="font-code-xs text-code-xs text-slate-400 ml-1">32.4%</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded hover:bg-slate-100/80 transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="h-3 w-3 rounded-sm bg-teal-400"></span>
+<span class="font-body-sm text-body-sm text-slate-700">待办/待确认</span>
+</div>
+<div class="text-right">
+<span class="font-code-sm text-code-sm font-semibold text-slate-900">38</span>
+<span class="font-code-xs text-code-xs text-slate-400 ml-1">26.8%</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded hover:bg-slate-100/80 transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="h-3 w-3 rounded-sm bg-slate-400"></span>
+<span class="font-body-sm text-body-sm text-slate-700">已归档作废</span>
+</div>
+<div class="text-right">
+<span class="font-code-sm text-code-sm font-semibold text-slate-900">4</span>
+<span class="font-code-xs text-code-xs text-slate-400 ml-1">2.8%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick footnote metric -->
+<div class="mt-space-md pt-space-md border-t border-slate-200/70 flex items-center justify-between text-slate-500 font-body-sm text-body-sm">
+<span>当前任务总体周转周期</span>
+<span class="font-code-sm text-code-sm font-semibold text-teal-800">3.2 天/项 (环比加快 18%)</span>
+</div>
+</div>
+<!-- Chart 2: 任务优先级与工单负载结构 (Stacked Bar Chart) - 7 cols -->
+<div class="lg:col-span-7 flex flex-col p-space-xl rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm">
+<div class="flex items-center justify-between mb-space-lg">
+<div>
+<span class="font-headline-sm text-headline-sm text-slate-900">工作流优先级与负载结构分布</span>
+<span class="font-body-sm text-body-sm text-slate-500 block mt-0.5">按业务模块划分的高/中/低优先级任务堆叠</span>
+</div>
+<!-- Legend labels -->
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="h-2.5 w-2.5 rounded-sm bg-rose-700"></span>
+<span class="text-slate-600 font-medium">紧急 / P0-P1</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="h-2.5 w-2.5 rounded-sm bg-teal-700"></span>
+<span class="text-slate-600 font-medium">普通 / P2</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="h-2.5 w-2.5 rounded-sm bg-slate-300"></span>
+<span class="text-slate-600 font-medium">低优 / P3</span>
+</div>
+</div>
+</div>
+<!-- Stacked Bar Visuals Grid -->
+<div class="flex flex-col gap-space-md my-auto">
+<!-- Module 1: 核心前端与组件库 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-md text-label-md text-slate-800">
+<span class="font-medium">前端架构与设计体系 (FE Architecture)</span>
+<span class="font-code-sm text-code-sm text-slate-500">42 项 (高优 14 / 中优 20 / 低优 8)</span>
+</div>
+<div class="w-full h-7 rounded-lg overflow-hidden flex bg-slate-100">
+<div class="bg-rose-700 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-white font-medium" style="width: 33.3%;" title="紧急: 14 项">14</div>
+<div class="bg-teal-700 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-white font-medium" style="width: 47.6%;" title="普通: 20 项">20</div>
+<div class="bg-slate-300 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-slate-700 font-medium" style="width: 19.1%;" title="低优: 8 项">8</div>
+</div>
+</div>
+<!-- Module 2: 云原生微服务后端 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-md text-label-md text-slate-800">
+<span class="font-medium">微服务集群与任务编排引擎 (Cloud Engine)</span>
+<span class="font-code-sm text-code-sm text-slate-500">48 项 (高优 18 / 中优 22 / 低优 8)</span>
+</div>
+<div class="w-full h-7 rounded-lg overflow-hidden flex bg-slate-100">
+<div class="bg-rose-700 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-white font-medium" style="width: 37.5%;" title="紧急: 18 项">18</div>
+<div class="bg-teal-700 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-white font-medium" style="width: 45.8%;" title="普通: 22 项">22</div>
+<div class="bg-slate-300 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-slate-700 font-medium" style="width: 16.7%;" title="低优: 8 项">8</div>
+</div>
+</div>
+<!-- Module 3: 自动化CI/CD与测试 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-md text-label-md text-slate-800">
+<span class="font-medium">持续交付与质量保障门禁 (DevOps / QA)</span>
+<span class="font-code-sm text-code-sm text-slate-500">32 项 (高优 6 / 中优 18 / 低优 8)</span>
+</div>
+<div class="w-full h-7 rounded-lg overflow-hidden flex bg-slate-100">
+<div class="bg-rose-700 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-white font-medium" style="width: 18.75%;" title="紧急: 6 项">6</div>
+<div class="bg-teal-700 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-white font-medium" style="width: 56.25%;" title="普通: 18 项">18</div>
+<div class="bg-slate-300 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-slate-700 font-medium" style="width: 25.0%;" title="低优: 8 项">8</div>
+</div>
+</div>
+<!-- Module 4: 数据看板与权限引擎 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-md text-label-md text-slate-800">
+<span class="font-medium">RBAC 权限系统与审计日志 (Security / Log)</span>
+<span class="font-code-sm text-code-sm text-slate-500">20 项 (高优 2 / 中优 12 / 低优 6)</span>
+</div>
+<div class="w-full h-7 rounded-lg overflow-hidden flex bg-slate-100">
+<div class="bg-rose-700 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-white font-medium" style="width: 10.0%;" title="紧急: 2 项">2</div>
+<div class="bg-teal-700 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-white font-medium" style="width: 60.0%;" title="普通: 12 项">12</div>
+<div class="bg-slate-300 hover:opacity-90 flex items-center justify-center font-code-xs text-code-xs text-slate-700 font-medium" style="width: 30.0%;" title="低优: 6 项">6</div>
+</div>
+</div>
+</div>
+<!-- Alert Callout for high priority items -->
+<div class="mt-space-md p-space-sm rounded-lg bg-rose-50/90 border border-rose-200/80 text-rose-900 flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-headline-sm text-rose-700">warning</span>
+<span class="font-body-sm text-body-sm">
+<strong>预警提示：</strong>研发效能部高优先级任务（40项）占总任务的 28.2%，已接近资源预警红线，建议平衡下一轮 Sprint 排期。
+        </span>
+</div>
+</div>
+</div>
+<!-- Main Visual Charts Grid (Row 2: Team Member Workload & Delivery Burn-down Trend) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Chart 3: 团队各负责人任务负载与完成率排行 (6 cols) -->
+<div class="lg:col-span-6 flex flex-col p-space-xl rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<span class="font-headline-sm text-headline-sm text-slate-900">负责人任务负载与交付排行</span>
+<span class="font-body-sm text-body-sm text-slate-500 block mt-0.5">个人分配量、进行中吞吐与交付达成率</span>
+</div>
+<button class="p-1 rounded text-slate-500 hover:bg-slate-100 font-label-sm text-label-sm flex items-center gap-1 border border-slate-200/60" type="button">
+<span class="material-symbols-outlined text-body-sm text-slate-500">swap_vert</span>
+<span>按完成率排序</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-md my-auto">
+<!-- User 1: 陈雅雯 -->
+<div class="p-space-md rounded-xl bg-slate-50/80 border border-slate-200/60 hover:bg-slate-100/70 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-space-sm">
+<img alt="Eva" class="w-7 h-7 rounded-full object-cover ring-1 ring-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpJ2vqYO__7ZjV2hoANLifkdq37N-yhP6EW_IQnpsmG5O6LZJnI8fXyUnwiUsd-csmhtwLfPldE620gB10FutSs7YaKGMTy6zmqw7lnTrhphLlr2OHJppIKlrawg1cFZ6akz1BZmA3ytWSO6_flxYhC7tJoyFwVM3Nr_Fb7AL4Bb-MhAztkp2xcolrGB6uZmJZZ0FPAoNz7N9ziotKp1PX-eDAIs4zgWZG2wZH8VLnYXOXtVhotcHHFA"/>
+<div>
+<span class="font-label-md text-label-md text-slate-900 font-semibold">陈雅雯 (Eva Chen)</span>
+<span class="font-code-xs text-code-xs text-slate-400 ml-1.5">架构 / 负责人</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-code-sm text-code-sm text-slate-500">共 42 项</span>
+<span class="px-space-sm py-0.5 rounded-full bg-teal-50 border border-teal-200/60 text-teal-800 font-label-sm text-label-sm font-semibold">81.0% 完成</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden flex">
+<div class="bg-teal-700 rounded-full transition-all duration-500" style="width: 81%"></div>
+</div>
+<div class="mt-1.5 flex justify-between font-code-xs text-code-xs text-slate-500">
+<span>已完成 34 项</span>
+<span>进行中 6 项 · 待办 2 项</span>
+</div>
+</div>
+<!-- User 2: 张子涵 -->
+<div class="p-space-md rounded-xl bg-slate-50/80 border border-slate-200/60 hover:bg-slate-100/70 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center font-label-sm text-label-sm font-bold">ZH</div>
+<div>
+<span class="font-label-md text-label-md text-slate-900 font-semibold">张子涵 (Jack Zhang)</span>
+<span class="font-code-xs text-code-xs text-slate-400 ml-1.5">资深后端开发</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-code-sm text-code-sm text-slate-500">共 38 项</span>
+<span class="px-space-sm py-0.5 rounded-full bg-teal-50 border border-teal-200/60 text-teal-800 font-label-sm text-label-sm font-semibold">73.7% 完成</span>
+</div>
+</div>
+<div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden flex">
+<div class="bg-teal-700 rounded-full transition-all duration-500" style="width: 73.7%"></div>
+</div>
+<div class="mt-1.5 flex justify-between font-code-xs text-code-xs text-slate-500">
+<span>已完成 28 项</span>
+<span>进行中 8 项 · 待办 2 项</span>
+</div>
+</div>
+<!-- User 3: 李明辉 -->
+<div class="p-space-md rounded-xl bg-slate-50/80 border border-slate-200/60 hover:bg-slate-100/70 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-slate-600 text-white flex items-center justify-center font-label-sm text-label-sm font-bold">MH</div>
+<div>
+<span class="font-label-md text-label-md text-slate-900 font-semibold">李明辉 (Leo Li)</span>
+<span class="font-code-xs text-code-xs text-slate-400 ml-1.5">前端系统专家</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-code-sm text-code-sm text-slate-500">共 36 项</span>
+<span class="px-space-sm py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-label-sm text-label-sm font-semibold">66.7% 完成</span>
+</div>
+</div>
+<div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden flex">
+<div class="bg-slate-600 rounded-full transition-all duration-500" style="width: 66.7%"></div>
+</div>
+<div class="mt-1.5 flex justify-between font-code-xs text-code-xs text-slate-500">
+<span>已完成 24 项</span>
+<span>进行中 9 项 · 待办 3 项</span>
+</div>
+</div>
+<!-- User 4: 王静 -->
+<div class="p-space-md rounded-xl bg-slate-50/80 border border-slate-200/60 hover:bg-slate-100/70 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-teal-800 text-white flex items-center justify-center font-label-sm text-label-sm font-bold">WJ</div>
+<div>
+<span class="font-label-md text-label-md text-slate-900 font-semibold">王静 (Claire Wang)</span>
+<span class="font-code-xs text-code-xs text-slate-400 ml-1.5">测试与交付工程师</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-code-sm text-code-sm text-slate-500">共 26 项</span>
+<span class="px-space-sm py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-label-sm text-label-sm font-semibold">61.5% 完成</span>
+</div>
+</div>
+<div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden flex">
+<div class="bg-slate-600 rounded-full transition-all duration-500" style="width: 61.5%"></div>
+</div>
+<div class="mt-1.5 flex justify-between font-code-xs text-code-xs text-slate-500">
+<span>已完成 16 项</span>
+<span>进行中 7 项 · 待办 3 项</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Chart 4: 近30天任务流转趋势与交付燃尽趋势图 (6 cols) -->
+<div class="lg:col-span-6 flex flex-col p-space-xl rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<span class="font-headline-sm text-headline-sm text-slate-900">近30天任务流转与交付演变</span>
+<span class="font-body-sm text-body-sm text-slate-500 block mt-0.5">每日新增创建、持续流转与完成闭环动态</span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="h-2.5 w-2.5 rounded-full bg-slate-600"></span>
+<span class="text-slate-600">进行中存量</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="h-2.5 w-2.5 rounded-full bg-teal-700"></span>
+<span class="text-slate-600">累计交付闭环</span>
+</div>
+</div>
+</div>
+<!-- SVG Line Trend Chart (No Gradients) -->
+<div class="relative w-full h-64 my-auto pt-space-md">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 500 200">
+<!-- Grid Lines (Horizontal) -->
+<line stroke="#e2e8f0" stroke-dasharray="3 3" x1="0" x2="500" y1="40" y2="40"></line>
+<line stroke="#e2e8f0" stroke-dasharray="3 3" x1="0" x2="500" y1="80" y2="80"></line>
+<line stroke="#e2e8f0" stroke-dasharray="3 3" x1="0" x2="500" y1="120" y2="120"></line>
+<line stroke="#e2e8f0" stroke-dasharray="3 3" x1="0" x2="500" y1="160" y2="160"></line>
+<!-- Area 1: In Progress Fill (Flat solid tint, no gradient) -->
+<polygon fill="#475569" fill-opacity="0.08" points="
+            0,160
+            50,150
+            100,135
+            150,120
+            200,105
+            250,90
+            300,95
+            350,85
+            400,75
+            450,70
+            500,60
+            500,195
+            0,195"></polygon>
+<!-- Area 2: Completed Fill (Flat solid tint, no gradient) -->
+<polygon fill="#0f766e" fill-opacity="0.12" points="
+            0,185
+            50,175
+            100,160
+            150,140
+            200,125
+            250,110
+            300,100
+            350,80
+            400,60
+            450,45
+            500,30
+            500,195
+            0,195"></polygon>
+<!-- Line 1: In Progress (Slate Gray) -->
+<polyline fill="none" points="0,160 50,150 100,135 150,120 200,105 250,90 300,95 350,85 400,75 450,70 500,60" stroke="#475569" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Line 2: Completed (Sage / Teal Green) -->
+<polyline fill="none" points="0,185 50,175 100,160 150,140 200,125 250,110 300,100 350,80 400,60 450,45 500,30" stroke="#0f766e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Interactive Highlight Points at latest date -->
+<circle cx="500" cy="60" fill="#475569" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="500" cy="30" fill="#0f766e" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+</svg>
+<!-- X Axis labels -->
+<div class="flex justify-between font-code-xs text-code-xs text-slate-400 mt-2">
+<span>04-01 (月初)</span>
+<span>04-08 (第1周)</span>
+<span>04-15 (第2周)</span>
+<span>04-22 (第3周)</span>
+<span>04-29 (当前)</span>
+</div>
+</div>
+<!-- Footer benchmark metric -->
+<div class="mt-space-md pt-space-sm border-t border-slate-200/70 flex items-center justify-between font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs text-teal-800">
+<span class="material-symbols-outlined text-body-md text-teal-700">speed</span>
+<span class="font-medium">交付吞吐率燃尽表现优秀：交付曲线斜率持续超越新增未决工单</span>
+</div>
+<span class="font-code-sm text-code-sm text-slate-500 font-medium">燃尽率 98.4%</span>
+</div>
+</div>
+</div>
+<!-- Detailed Metric Drilldown & Recent Milestones Grid -->
+<div class="p-space-xl rounded-xl bg-white/75 backdrop-blur-md border border-slate-200/70 shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-teal-800 text-headline-sm">table_chart</span>
+<div>
+<span class="font-headline-sm text-headline-sm text-slate-900">效能下钻明细与重点交付项 (Recent Deliverables)</span>
+<span class="font-body-sm text-body-sm text-slate-500 block mt-0.5">按任务 ID 快速追溯看板中已闭环与高风险项</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200/80 border border-slate-200 text-slate-700 font-label-md text-label-md transition-colors" type="button">
+          查看全部工单明细
+        </button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/90 text-slate-500 font-label-sm text-label-sm uppercase border-b border-slate-200/70">
+<th class="py-space-sm px-space-md">任务编号</th>
+<th class="py-space-sm px-space-md">任务名称与业务模块</th>
+<th class="py-space-sm px-space-md">负责人</th>
+<th class="py-space-sm px-space-md">优先级</th>
+<th class="py-space-sm px-space-md">当前状态</th>
+<th class="py-space-sm px-space-md">耗时 / 预估</th>
+<th class="py-space-sm px-space-md text-right">交付达成率</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200/70 font-body-md text-body-md">
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-space-sm px-space-md font-code-sm text-code-sm text-teal-800 font-semibold">TASK-1048</td>
+<td class="py-space-sm px-space-md">
+<span class="font-medium text-slate-900">研发效能工作台多端自适应布局重构</span>
+<span class="block font-body-sm text-body-sm text-slate-500">前端架构 · Sprint 14</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-label-sm text-label-sm flex items-center justify-center font-bold">陈</span>
+<span class="text-slate-800 font-body-sm text-body-sm">陈雅雯</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-0.5 rounded-full bg-rose-50 border border-rose-200 text-rose-800 font-label-sm text-label-sm font-medium">紧急 P0</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="flex items-center gap-1.5 font-label-sm text-label-sm text-slate-700 font-medium">
+<span class="h-2 w-2 rounded-full bg-slate-600"></span>
+<span>进行中 (80%)</span>
+</span>
+</td>
+<td class="py-space-sm px-space-md font-code-sm text-code-sm text-slate-500">18h / 24h</td>
+<td class="py-space-sm px-space-md text-right font-code-sm text-code-sm font-semibold text-teal-700">92.5%</td>
+</tr>
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-space-sm px-space-md font-code-sm text-code-sm text-teal-800 font-semibold">TASK-1042</td>
+<td class="py-space-sm px-space-md">
+<span class="font-medium text-slate-900">企业级单点登录 (SSO) 与 RBAC 权限下发</span>
+<span class="block font-body-sm text-body-sm text-slate-500">安全与权限 · 核心组件</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-label-sm text-label-sm flex items-center justify-center font-bold">张</span>
+<span class="text-slate-800 font-body-sm text-body-sm">张子涵</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-0.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 font-label-sm text-label-sm font-medium">普通 P2</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="flex items-center gap-1.5 font-label-sm text-label-sm text-teal-800 font-medium">
+<span class="h-2 w-2 rounded-full bg-teal-600"></span>
+<span>已完成验收</span>
+</span>
+</td>
+<td class="py-space-sm px-space-md font-code-sm text-code-sm text-slate-500">32h / 32h</td>
+<td class="py-space-sm px-space-md text-right font-code-sm text-code-sm font-semibold text-teal-700">100.0%</td>
+</tr>
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-space-sm px-space-md font-code-sm text-code-sm text-teal-800 font-semibold">TASK-1039</td>
+<td class="py-space-sm px-space-md">
+<span class="font-medium text-slate-900">任务已删除软回收站与历史快照版本回滚</span>
+<span class="block font-body-sm text-body-sm text-slate-500">数据存储 · 回收站视图</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-slate-300 text-slate-800 font-label-sm text-label-sm flex items-center justify-center font-bold">李</span>
+<span class="text-slate-800 font-body-sm text-body-sm">李明辉</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 font-label-sm text-label-sm font-medium">低优 P3</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="flex items-center gap-1.5 font-label-sm text-label-sm text-slate-500">
+<span class="h-2 w-2 rounded-full bg-slate-400"></span>
+<span>待办待排期</span>
+</span>
+</td>
+<td class="py-space-sm px-space-md font-code-sm text-code-sm text-slate-500">0h / 16h</td>
+<td class="py-space-sm px-space-md text-right font-code-sm text-code-sm font-semibold text-slate-400">0.0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Toast / Notification container -->
+<div class="fixed bottom-6 right-6 hidden items-center gap-space-sm px-space-lg py-space-md rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700/60 text-white shadow-2xl transition-all duration-300 z-50" id="toast-message">
+<span class="material-symbols-outlined text-teal-300" id="toast-icon">check_circle</span>
+<span class="font-body-md text-body-md" id="toast-text">报表生成中，请稍候...</span>
+</div>
+</div>
+<script>
+  // Filter switching
+  function switchPeriod(btn, label) {
+    const container = document.getElementById('period-selector');
+    const buttons = container.querySelectorAll('button');
+    buttons.forEach(b => {
+      b.className = 'px-space-md py-1 rounded font-label-md text-label-md text-slate-600 hover:text-slate-900 transition-colors';
+    });
+    btn.className = 'px-space-md py-1 rounded font-label-md text-label-md bg-teal-800 text-white shadow-sm';
+
+    showToast(`已切换统计时间范围：${label}`, 'date_range');
+    refreshTimestamp();
+  }
+
+  function applyFilters() {
+    const dept = document.getElementById('dept-filter').selectedOptions[0].text;
+    const owner = document.getElementById('owner-filter').selectedOptions[0].text;
+    showToast(`过滤联动：${dept} · ${owner}`, 'filter_list');
+    refreshTimestamp();
+  }
+
+  function toggleExportMenu() {
+    const menu = document.getElementById('export-dropdown');
+    menu.classList.toggle('hidden');
+  }
+
+  // Close dropdown on click outside
+  document.addEventListener('click', function(e) {
+    const dropdown = document.getElementById('export-dropdown');
+    const target = e.target;
+    if (!target.closest('#export-dropdown') && !target.closest('button[onclick="toggleExportMenu()"]')) {
+      if (dropdown && !dropdown.classList.contains('hidden')) {
+        dropdown.classList.add('hidden');
+      }
+    }
+  });
+
+  function exportData(type) {
+    const dropdown = document.getElementById('export-dropdown');
+    dropdown.classList.add('hidden');
+    if(type === 'excel') {
+      showToast('正在导出 TaskPulse_任务效能统计_2024.xlsx ...', 'table_view');
+    } else {
+      showToast('正在导出 TaskPulse_效能可视化简报.pdf ...', 'picture_as_pdf');
+    }
+  }
+
+  function showToast(text, icon = 'check_circle') {
+    const toast = document.getElementById('toast-message');
+    const toastText = document.getElementById('toast-text');
+    const toastIcon = document.getElementById('toast-icon');
+
+    toastText.textContent = text;
+    toastIcon.textContent = icon;
+    toast.classList.remove('hidden');
+    toast.classList.add('flex');
+
+    setTimeout(() => {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }, 2800);
+  }
+
+  function refreshTimestamp() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const ts = document.getElementById('update-timestamp');
+    if (ts) {
+      ts.textContent = `已同步: 刚刚 ${hours}:${minutes}`;
+    }
+  }
+</script></main></div></body></html>
+
+<!-- 用户登录 - 灰蓝绿毛玻璃版 -->
+<!DOCTYPE html><html lang="zh-CN" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-primary":"#80d5cb","background":"#f1f5f9","on-tertiary":"#ffffff","surface-dim":"#ccdbf3","secondary-fixed-dim":"#b9c7e0","surface-container":"#e6eeff","tertiary":"#0f766e","primary":"#0f766e","outline":"#64748b","on-secondary-container":"#57657b","on-secondary-fixed":"#0d1c2f","on-error":"#ffffff","secondary-fixed":"#d5e3fd","surface":"#f8fafc","on-secondary":"#ffffff","tertiary-container":"#115e59","surface-container-high":"#e2e8f0","on-surface-variant":"#475569","on-tertiary-container":"#ccfbf1","error-container":"#fee2e2","on-primary-fixed":"#00201d","on-primary-container":"#ccfbf1","on-secondary-fixed-variant":"#3a485c","inverse-on-surface":"#eaf1ff","secondary":"#475569","tertiary-fixed":"#99f6e4","surface-container-lowest":"#ffffff","surface-variant":"#f1f5f9","secondary-container":"#e2e8f0","outline-variant":"#cbd5e1","primary-container":"#115e59","surface-container-highest":"#e2e8f0","on-surface":"#0f172a","on-error-container":"#991b1b","surface-bright":"#f8fafc","surface-container-low":"#f8fafc","error":"#dc2626","on-primary":"#ffffff","inverse-surface":"#1e293b","on-background":"#0f172a","on-tertiary-fixed":"#00201c","surface-tint":"#0f766e","tertiary-fixed-dim":"#5eead4","primary-fixed-dim":"#5eead4","on-tertiary-fixed-variant":"#134e4a","on-primary-fixed-variant":"#134e4a","primary-fixed":"#ccfbf1"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.375rem","xl":"0.75rem","2xl":"1rem","full":"9999px"},spacing:{"space-md":"0.75rem","gutter":"1rem","space-xl":"1.5rem","space-lg":"1rem","margin":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem"},fontFamily:{"code-sm":["JetBrains Mono"],"headline-sm":["Inter"],"code-xs":["JetBrains Mono"],"body-md":["Inter"],"display-lg":["Inter"],"display-sm":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"body-lg":["Inter"],"label-sm":["Inter"]},fontSize:{"code-sm":["12px",{"lineHeight":"16px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"code-xs":["10px",{"lineHeight":"14px","letterSpacing":"0em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.025em","fontWeight":"700"}],"display-sm":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"500"}],"body-lg":["15px",{"lineHeight":"22px","letterSpacing":"-0.005em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-slate-100 font-body-md text-body-md text-slate-800 flex items-center justify-center min-h-screen relative selection:bg-teal-100 selection:text-teal-900"><main class="w-full"><div class="flex flex-col w-full min-h-[942px] justify-center items-center p-space-lg md:p-space-xl relative">
+<!-- Pure Flat Geometric Ambient Elements (Strictly No Gradients) -->
+<div class="fixed top-12 left-1/4 w-96 h-96 bg-teal-200/35 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="fixed bottom-10 right-1/4 w-80 h-80 bg-slate-200/50 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Main Frosted Glass Architecture Container -->
+<div class="w-full max-w-5xl bg-white/85 backdrop-blur-xl border border-white/60 shadow-2xl rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[640px]">
+<!-- Left Column: Enterprise Brand Visual & Telemetry Highlights (Slate & Sage/Teal Theme) -->
+<div class="lg:col-span-5 bg-slate-50/70 p-space-xl flex flex-col relative overflow-hidden border-r border-slate-200/50 justify-center"><div class="relative z-10 flex flex-col justify-between h-full p-6 md:p-8"><div class="flex items-center space-x-2.5"><div class="w-9 h-9 rounded-lg bg-teal-700 flex items-center justify-center text-white shadow-sm"><span class="material-symbols-outlined text-[20px]">view_kanban</span></div><div class="flex flex-col"><span class="font-headline-sm text-slate-900 font-bold tracking-tight text-[16px] leading-tight">TaskPulse</span><span class="font-code-xs text-slate-400 text-[11px]">Enterprise Suite</span></div></div><div class="my-auto py-8"><div class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-teal-200/35 border border-teal-700/10 text-teal-700 font-label-sm text-[12px] mb-4"><span class="material-symbols-outlined text-[14px]">verified</span><span class="">敏捷协同工作台</span></div><h1 class="font-display-sm text-display-sm text-slate-900 mb-space-md leading-tight">高效协作<br><span class="text-teal-700 font-bold">精细化任务追踪</span></h1><p class="font-body-md text-slate-600 leading-relaxed max-w-md">面向团队业务编排、交付节点与工时闭环的专属工作台。</p></div><div class="flex items-center space-x-2 text-slate-400 text-[12px]"><span class="w-1.5 h-1.5 rounded-full bg-teal-700"></span><span class="">安全加密受控工作空间</span></div></div></div>
+<!-- Right Column: Login Core Form & Failure State Feedback -->
+<div class="lg:col-span-7 p-space-xl md:p-12 flex flex-col justify-between bg-white/70 backdrop-blur-sm">
+<!-- Top Context Notice -->
+
+<!-- Main Login Section -->
+<div class="max-w-md w-full mx-auto my-auto py-space-lg"><div class="mb-6"><h2 class="font-headline-lg text-headline-lg text-slate-900 tracking-tight">员工登录验证</h2><p class="font-body-md text-slate-500 mt-1">请输入工号 / 域账号及专属通行凭证</p></div><div class="bg-rose-50 border border-rose-200 text-rose-700 rounded-lg px-3.5 py-2.5 flex items-center space-x-2.5 mb-5 shadow-sm" id="login-error-alert"><span class="material-symbols-outlined text-rose-600 text-[18px] shrink-0">error</span><span class="font-body-sm text-[13px] flex-1 font-medium">账号或密码错误，请核对后重试</span></div><form class="space-y-4" id="enterprise-login-form" onsubmit="event.preventDefault(); handleLoginSubmit();"><div><div class="flex justify-between items-center mb-1.5"><label class="font-label-md text-slate-700" for="username-input">工号 / 域账号</label></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-slate-400 text-[20px] pointer-events-none">badge</span><input autocomplete="username" class="w-full h-11 pl-10 pr-10 bg-white font-body-md text-slate-800 rounded-lg border border-slate-300 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600/30 transition-all" id="username-input" placeholder="CORP\alex.chen" type="text" value="CORP\alex.chen"><button class="absolute right-2.5 p-1 rounded hover:bg-slate-100 text-slate-400 hover:text-slate-600 flex items-center justify-center transition-colors" onclick="clearUsernameInput()" title="清空输入" type="button"><span class="material-symbols-outlined text-[18px]">cancel</span></button></div></div><div><div class="flex justify-between items-center mb-1.5"><label class="font-label-md text-slate-700" for="password-input">域密码凭证</label><button class="font-label-sm text-teal-700 hover:text-teal-800 hover:underline" onclick="showHelpModal()" type="button">需要协助？</button></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-slate-400 text-[20px] pointer-events-none">lock</span><input autocomplete="current-password" class="w-full h-11 pl-10 pr-10 bg-white font-body-md text-slate-800 rounded-lg border border-slate-300 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600/30 transition-all" id="password-input" placeholder="输入专属安全密码" type="password" value="••••••••••••"><button class="absolute right-2.5 p-1 rounded hover:bg-slate-100 text-slate-400 hover:text-slate-600 flex items-center justify-center transition-colors" id="toggle-pwd-btn" onclick="togglePasswordVisibility()" title="切换密码可见性" type="button"><span class="material-symbols-outlined text-[18px]" id="pwd-visibility-icon">visibility_off</span></button></div></div><div class="flex items-center justify-between pt-1"><label class="flex items-center space-x-2 cursor-pointer select-none"><input checked="" class="w-4 h-4 rounded text-teal-700 focus:ring-teal-600 border-slate-300 accent-teal-700 cursor-pointer" id="trust-device" type="checkbox"><span class="font-body-sm text-slate-600">保持 7 天免密登录</span></label></div><div class="pt-2"><button class="w-full h-11 bg-teal-700 hover:bg-teal-800 text-white font-headline-sm rounded-lg shadow hover:shadow-md active:scale-[0.99] transition-all flex items-center justify-center space-x-2" id="login-submit-btn" type="submit"><span class="">立即登录</span><span class="material-symbols-outlined text-[20px]">arrow_forward</span></button></div></form></div>
+<!-- Bottom Administrative Assistance Notice -->
+<div class="pt-space-md mt-space-md border-t border-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-between text-body-sm text-slate-500 gap-space-xs"><div class="flex items-center justify-between w-full text-slate-400 text-body-sm"><span class="flex items-center space-x-1.5"><span class="material-symbols-outlined text-[16px]">help_outline</span><span class="">遇到登录问题？请联系系统管理员</span></span><button class="text-teal-700 hover:text-teal-800 hover:underline inline-flex items-center space-x-1" onclick="contactAdminAction()" type="button"><span class="">IT 服务支持</span><span class="material-symbols-outlined text-[14px]">open_in_new</span></button></div></div>
+</div>
+</div>
+<!-- Micro Interaction Toast / Notification Placeholder -->
+<div class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 bg-slate-900/90 backdrop-blur text-white px-4 py-3 rounded-lg shadow-xl flex items-center space-x-2.5 z-50 border border-slate-700/50" id="system-toast">
+<span class="material-symbols-outlined text-teal-400 text-[20px]" id="toast-icon">info</span>
+<span class="font-body-md text-body-md" id="toast-msg">服务请求已提交</span>
+</div>
+</div>
+<script>
+  function togglePasswordVisibility() {
+    var pwdInput = document.getElementById('password-input');
+    var icon = document.getElementById('pwd-visibility-icon');
+    if (pwdInput.type === 'password') {
+      pwdInput.type = 'text';
+      icon.textContent = 'visibility';
+    } else {
+      pwdInput.type = 'password';
+      icon.textContent = 'visibility_off';
+    }
+  }
+
+  function clearUsernameInput() {
+    var userInput = document.getElementById('username-input');
+    userInput.value = '';
+    userInput.focus();
+  }
+
+  function showToast(message, isError) {
+    var toast = document.getElementById('system-toast');
+    var msg = document.getElementById('toast-msg');
+    var icon = document.getElementById('toast-icon');
+
+    msg.textContent = message;
+    if (isError) {
+      icon.textContent = 'error';
+      icon.className = 'material-symbols-outlined text-rose-400 text-[20px]';
+    } else {
+      icon.textContent = 'check_circle';
+      icon.className = 'material-symbols-outlined text-teal-400 text-[20px]';
+    }
+
+    toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+    setTimeout(function() {
+      toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+    }, 3200);
+  }
+
+  function handleLoginSubmit() {
+    var btn = document.getElementById('login-submit-btn');
+    var alertBox = document.getElementById('login-error-alert');
+
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>凭证验证中...</span>';
+    btn.disabled = true;
+
+    setTimeout(function() {
+      btn.disabled = false;
+      btn.innerHTML = '<span>立即登录</span><span class="material-symbols-outlined text-[20px]">arrow_forward</span>';
+
+      // Simulate repeated failure update
+      alertBox.classList.add('ring-2', 'ring-rose-500');
+      setTimeout(function() {
+        alertBox.classList.remove('ring-2', 'ring-rose-500');
+      }, 500);
+
+      showToast('凭证验证失败：LDAP 服务器返回身份不符 (错误代码: SEC_AUTH_401)', true);
+    }, 900);
+  }
+
+  function contactAdminAction() {
+    showToast('已调起企业内部钉钉 / 企微 IT 服务热线: ext-8848', false);
+  }
+
+  function showHelpModal() {
+    showToast('密码策略：至少12位包含大写字母、数字及特殊符号', false);
+  }
+</script></main>
+
+</body></html>
+
+<!-- 任务工作台 - 灰蓝绿毛玻璃版 -->
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-primary":"#80d5cb","background":"#f8fafc","on-tertiary":"#ffffff","surface-dim":"#e2e8f0","secondary-fixed-dim":"#b9c7e0","surface-container":"#f1f5f9","tertiary":"#0f766e","primary":"#0f766e","outline":"#64748b","on-secondary-container":"#334155","on-secondary-fixed":"#0f172a","on-error":"#ffffff","secondary-fixed":"#e2e8f0","surface":"#ffffff","on-secondary":"#ffffff","tertiary-container":"#134e4a","surface-container-high":"#e2e8f0","on-surface-variant":"#475569","on-tertiary-container":"#ccfbf1","error-container":"#fee2e2","on-primary-fixed":"#042f2e","on-primary-container":"#ccfbf1","on-secondary-fixed-variant":"#1e293b","inverse-on-surface":"#f8fafc","secondary":"#334155","tertiary-fixed":"#ccfbf1","surface-container-lowest":"#ffffff","surface-variant":"#f1f5f9","secondary-container":"#e2e8f0","outline-variant":"#cbd5e1","primary-container":"#115e59","surface-container-highest":"#e2e8f0","on-surface":"#0f172a","on-error-container":"#991b1b","surface-bright":"#ffffff","surface-container-low":"#f8fafc","error":"#ef4444","on-primary":"#ffffff","inverse-surface":"#1e293b","on-background":"#0f172a","on-tertiary-fixed":"#042f2e","surface-tint":"#0f766e","tertiary-fixed-dim":"#5eead4","primary-fixed-dim":"#5eead4","on-tertiary-fixed-variant":"#115e59","on-primary-fixed-variant":"#115e59","primary-fixed":"#ccfbf1"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","gutter":"1rem","space-xl":"1.5rem","space-lg":"1rem","margin":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem"},fontFamily:{"code-sm":["JetBrains Mono"],"headline-sm":["Inter"],"code-xs":["JetBrains Mono"],"body-md":["Inter"],"display-lg":["Inter"],"display-sm":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"body-lg":["Inter"],"label-sm":["Inter"]},fontSize:{"code-sm":["12px",{"lineHeight":"16px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"code-xs":["10px",{"lineHeight":"14px","letterSpacing":"0em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.025em","fontWeight":"700"}],"display-sm":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"500"}],"body-lg":["15px",{"lineHeight":"22px","letterSpacing":"-0.005em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-slate-50 font-body-md text-body-md text-slate-900 antialiased"><header class="fixed top-0 left-0 right-0 h-14 bg-white/80 backdrop-blur-md border-b border-slate-200/80 z-50 flex items-center justify-between px-space-lg shadow-[0_1px_3px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-space-md"><img alt="TaskPulse Logo" class="h-8 w-auto object-contain rounded" src="https://lh3.googleusercontent.com/aida/AEtjO1WuvWjcMtPS6UuMrm7513h7lolopnF2uzx3aT9N2tjrVtM_ncQpI9F5On3JrkvG7MarbV5QgLoOGUHcefwZZt9nO1uXQl3Yt13yF-u0quZUES6YarJYAoW4_w8DKZqm32mgBVnWqZTKdVtROOVrxxqPIYHqlsQtoeU09yDOjbz4OtlfcQKZXOoBYT08L2k7BmrJMAef7EjrylR4_OKCLPqeDyyspXLQQyyLLhgyd5aAzkQunFxqWY2yuwk"/><span class="font-headline-sm text-headline-sm text-slate-800 tracking-tight font-semibold">TaskPulse 员工任务管理系统</span><span class="px-space-sm py-space-xs rounded-full bg-teal-50 text-teal-800 border border-teal-200/60 font-label-sm text-label-sm font-medium">v2.4.0 企业版</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 font-label-sm text-label-sm"><span class="material-symbols-outlined text-[15px] text-teal-700">admin_panel_settings</span><span class="font-medium">系统管理员 (Admin)</span></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpJ2vqYO__7ZjV2hoANLifkdq37N-yhP6EW_IQnpsmG5O6LZJnI8fXyUnwiUsd-csmhtwLfPldE620gB10FutSs7YaKGMTy6zmqw7lnTrhphLlr2OHJppIKlrawg1cFZ6akz1BZmA3ytWSO6_flxYhC7tJoyFwVM3Nr_Fb7AL4Bb-MhAztkp2xcolrGB6uZmJZZ0FPAoNz7N9ziotKp1PX-eDAIs4zgWZG2wZH8VLnYXOXtVhotcHHFA"/><div class="flex flex-col text-left"><span class="font-label-md text-label-md text-slate-900 font-medium leading-none">陈雅雯 (Eva Chen)</span><span class="font-body-sm text-body-sm text-slate-500 leading-none mt-space-xs">研发效能部 / 总监</span></div></div><div class="h-4 w-px bg-slate-200"></div><button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 border border-slate-200/70 transition-colors font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-label-md">logout</span><span>退出登录</span></button></div></header><aside class="fixed left-0 top-14 bottom-0 w-64 bg-slate-900/95 backdrop-blur-xl border-r border-slate-800 z-40 flex flex-col justify-between py-space-lg px-space-md shadow-sm"><div class="flex flex-col gap-space-lg"><div class="px-space-sm"><span class="font-label-sm text-label-sm text-slate-400 uppercase tracking-wider font-semibold">核心业务模块</span></div><nav class="flex flex-col gap-1.5" data-active-classes="bg-teal-700 text-white font-label-md text-label-md rounded-lg shadow-sm"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2 transition-all bg-teal-700 text-white font-label-md text-label-md rounded-lg shadow-sm font-medium" data-path="task-workbench" href="#"><span class="material-symbols-outlined text-headline-sm text-teal-200">task_alt</span><span>任务工作台</span></a><a class="flex items-center gap-space-sm px-space-md py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-all font-label-md text-label-md" data-path="analytics-dashboard" href="#"><span class="material-symbols-outlined text-headline-sm text-slate-400">monitoring</span><span>任务统计看板</span></a><a class="flex items-center justify-between px-space-md py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-all font-label-md text-label-md" data-path="user-management" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-headline-sm text-slate-400">manage_accounts</span><span>用户与权限管理</span></div><span class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-400 font-code-xs text-code-xs uppercase">Admin</span></a><a class="flex items-center justify-between px-space-md py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-all font-label-md text-label-md" data-path="recycle-bin" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-headline-sm text-slate-400">delete_sweep</span><span>已删除任务视图</span></div><span class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-400 font-code-xs text-code-xs uppercase">Admin</span></a></nav></div><div class="flex flex-col gap-space-xs p-space-md rounded-xl bg-slate-800/80 border border-slate-700/80"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-slate-400">系统运行状态</span><span class="flex h-2 w-2 rounded-full bg-teal-400"></span></div><span class="font-code-sm text-code-sm text-slate-200 font-medium">Cloud Engine: OK</span><span class="font-body-sm text-body-sm text-slate-400">数据同步延迟 &lt; 12ms</span></div></aside><div class="pl-64"><main class="w-full pt-14 px-space-xl pb-space-xl bg-slate-50"><div class="flex flex-col w-full gap-space-lg">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<span class="font-display-sm text-display-sm text-slate-900 tracking-tight font-bold">任务工作台</span>
+<span class="px-2.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 font-code-xs text-code-xs font-semibold">Q2 迭代任务流</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-white/80 backdrop-blur-md border border-slate-200/90 text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-all shadow-sm font-label-md text-label-md font-medium" type="button">
+<span class="material-symbols-outlined text-headline-sm text-slate-500">file_download</span>
+<span>导出列表</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-teal-700 text-white hover:bg-teal-800 transition-all shadow-sm font-label-md text-label-md font-medium" id="open-new-task-btn" type="button">
+<span class="material-symbols-outlined text-headline-sm text-teal-200">add_task</span>
+<span>新建任务</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-space-xl text-slate-500 font-body-sm text-body-sm">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-label-sm text-teal-700">verified_user</span>
+<span>当前权限视图：系统管理员（全权操作）</span>
+</span>
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-label-sm text-slate-400">schedule</span>
+<span>上次同步：刚刚 (14:32:08)</span>
+</span>
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-label-sm text-teal-700">filter_alt</span>
+<span>已启用多维动态联合过滤</span>
+</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-md p-4 rounded-xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-space-xs bg-slate-100/90 p-1 rounded-lg border border-slate-200/60">
+<span class="text-slate-500 font-label-sm text-label-sm px-space-xs font-medium">状态</span>
+<button class="status-chip active px- space-sm px-2.5 py-1 rounded-lg bg-white text-teal-800 font-label-sm text-label-sm font-semibold shadow-xs transition-all" data-status="all" type="button">全部</button>
+<button class="status-chip px-2.5 py-1 rounded-lg text-slate-600 hover:text-slate-900 font-label-sm text-label-sm transition-all" data-status="pending" type="button">待办</button>
+<button class="status-chip px-2.5 py-1 rounded-lg text-slate-600 hover:text-slate-900 font-label-sm text-label-sm transition-all" data-status="in-progress" type="button">进行中</button>
+<button class="status-chip px-2.5 py-1 rounded-lg text-slate-600 hover:text-slate-900 font-label-sm text-label-sm transition-all" data-status="completed" type="button">已完成</button>
+</div>
+<div class="flex items-center gap-space-xs bg-slate-100/90 p-1 rounded-lg border border-slate-200/60">
+<span class="text-slate-500 font-label-sm text-label-sm px-space-xs font-medium">优先级</span>
+<button class="priority-chip active px-2.5 py-1 rounded-lg bg-white text-teal-800 font-label-sm text-label-sm font-semibold shadow-xs transition-all" data-priority="all" type="button">全部</button>
+<button class="priority-chip px-2.5 py-1 rounded-lg text-slate-600 hover:text-slate-900 font-label-sm text-label-sm transition-all" data-priority="high" type="button">高 (P0)</button>
+<button class="priority-chip px-2.5 py-1 rounded-lg text-slate-600 hover:text-slate-900 font-label-sm text-label-sm transition-all" data-priority="mid" type="button">中 (P1)</button>
+<button class="priority-chip px-2.5 py-1 rounded-lg text-slate-600 hover:text-slate-900 font-label-sm text-label-sm transition-all" data-priority="low" type="button">低 (P2)</button>
+</div>
+<div class="flex items-center gap-space-xs bg-slate-100/90 px-space-sm py-1 rounded-lg border border-slate-200/60">
+<span class="material-symbols-outlined text-label-md text-slate-500">person</span>
+<label class="sr-only" for="assignee-select">负责人</label>
+<select class="bg-transparent text-slate-800 font-label-md text-label-md py-1 pr-space-md outline-none cursor-pointer font-medium" id="assignee-select">
+<option value="all">负责人: 全部成员</option>
+<option value="陈雅雯">陈雅雯 (Eva Chen - 我)</option>
+<option value="张子涵">张子涵 (Zihan Zhang)</option>
+<option value="李明辉">李明辉 (Minghui Li)</option>
+<option value="王静">王静 (Jing Wang)</option>
+<option value="赵强">赵强 (Qiang Zhao)</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<label class="flex items-center gap-space-xs cursor-pointer select-none bg-slate-100/90 px-space-sm py-1.5 rounded-lg text-slate-600 hover:text-slate-900 border border-slate-200/60 transition-colors">
+<input class="w-4 h-4 rounded text-teal-700 focus:ring-0 cursor-pointer accent-teal-700" id="toggle-deleted" type="checkbox"/>
+<span class="font-label-sm text-label-sm flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-code-sm text-slate-500">visibility</span>
+<span>显示已删除任务</span>
+</span>
+<span class="px-1 py-0.5 rounded bg-slate-200 text-slate-600 font-code-xs text-code-xs font-semibold">Admin</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-space-sm text-slate-400 text-label-md">search</span>
+<input class="w-64 pl-8 pr-8 py-1.5 rounded-lg bg-slate-100/90 text-slate-900 border border-slate-200/70 font-body-sm text-body-sm placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-teal-600 transition-all" id="search-input" placeholder="搜索任务标题或编号 (⌘K)..." type="text"/>
+<span class="absolute right-2 px-1 py-0.5 rounded bg-slate-200 text-slate-500 font-code-xs text-code-xs pointer-events-none">/</span>
+</div>
+<button class="flex items-center gap-1 px-space-sm py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all font-label-sm text-label-sm font-medium" id="reset-filters" type="button">
+<span class="material-symbols-outlined text-label-sm text-slate-500">restart_alt</span>
+<span>重置</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full rounded-xl bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-[0_1px_4px_rgba(0,0,0,0.02)] overflow-hidden flex flex-col">
+<div class="grid grid-cols-12 gap-space-sm px-space-lg py-space-sm bg-slate-100/80 border-b border-slate-200/70 text-slate-600 font-label-sm text-label-sm uppercase tracking-wider items-center font-semibold">
+<div class="col-span-5 flex items-center gap-space-xs">
+<span>任务编号 &amp; 任务标题</span>
+<span class="material-symbols-outlined text-label-sm text-teal-700">arrow_downward</span>
+</div>
+<div class="col-span-2">状态</div>
+<div class="col-span-1">优先级</div>
+<div class="col-span-2">负责人</div>
+<div class="col-span-1">更新时间</div>
+<div class="col-span-1 text-right">操作</div>
+</div>
+<div class="flex flex-col divide-y divide-slate-100" id="task-rows-container">
+<div class="task-row grid grid-cols-12 gap-space-sm px-space-lg py-space-md items-center hover:bg-teal-50/40 transition-colors group cursor-pointer" data-assignee="陈雅雯" data-deleted="false" data-id="TASK-2049" data-priority="high" data-status="in-progress" data-title="核心服务网关鉴权改造及跨域令牌流转重构">
+<div class="col-span-5 flex items-center gap-space-sm min-w-0 pr-space-md">
+<span class="px-space-xs py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/70 font-code-xs text-code-xs font-semibold shrink-0">#2049</span>
+<span class="font-headline-sm text-headline-sm text-slate-800 truncate group-hover:text-teal-800 transition-colors font-medium">核心服务网关鉴权改造及跨域令牌流转重构</span>
+</div>
+<div class="col-span-2 flex items-center">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-teal-100/70 text-teal-900 border border-teal-200/60 font-label-sm text-label-sm font-medium">
+<span class="h-1.5 w-1.5 rounded-full bg-teal-600 animate-pulse"></span>
+<span>进行中</span>
+</span>
+</div>
+<div class="col-span-1 flex items-center gap-1">
+<span class="h-2 w-2 rounded-full bg-rose-500"></span>
+<span class="font-label-sm text-label-sm text-rose-700 font-semibold">高 (P0)</span>
+</div>
+<div class="col-span-2 flex items-center gap-space-xs">
+<img class="w-6 h-6 rounded-full object-cover shrink-0 ring-1 ring-slate-200" data-alt="Corporate headshot of Eva Chen, Chinese female executive in tech with calm confident expression in professional navy suit against neutral architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4UMPLJsUjLcizEA1XfnwVOEqmuLJguPSy3SkKo8wmf3q4Wcz7kPCU-No_rKDFJUNHkPS8NifaUFGgAYitepXl5uxMyF6r0hV2qg0FRuOjKchWhbGQPEBY2pckiuBzO06vf7Ag4Vz4s0Rg-cq5O4o1yzzBaT5jK-ODpO_jRF4eeAgZ1QwNE8BwQ_QKDeJGnMhQikf2ZTBAbhbKxHgogE4xRNgJTqkuejOUySW4pZfk1KOrJOzG6OYIGA"/>
+<span class="font-body-sm text-body-sm text-slate-800 truncate font-medium">陈雅雯 (我)</span>
+<span class="px-1 py-0.2 rounded bg-slate-100 text-slate-600 font-code-xs text-code-xs border border-slate-200">Owner</span>
+</div>
+<div class="col-span-1 font-body-sm text-body-sm text-slate-500 truncate">10分钟前</div>
+<div class="col-span-1 flex items-center justify-end gap-1">
+<button class="view-task-action p-1 rounded-lg text-slate-500 hover:text-teal-800 hover:bg-slate-100 transition-colors" title="查看详情与编辑" type="button">
+<span class="material-symbols-outlined text-label-md">open_in_new</span>
+</button>
+<button class="quick-delete-action p-1 rounded-lg text-slate-500 hover:text-rose-700 hover:bg-rose-50 transition-colors" title="软删除任务" type="button">
+<span class="material-symbols-outlined text-label-md">delete</span>
+</button>
+</div>
+</div>
+<div class="task-row grid grid-cols-12 gap-space-sm px-space-lg py-space-md items-center hover:bg-teal-50/40 transition-colors group cursor-pointer" data-assignee="张子涵" data-deleted="false" data-id="TASK-2048" data-priority="high" data-status="pending" data-title="数据库分库分表连接池内存泄漏专项排查">
+<div class="col-span-5 flex items-center gap-space-sm min-w-0 pr-space-md">
+<span class="px-space-xs py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/70 font-code-xs text-code-xs font-semibold shrink-0">#2048</span>
+<span class="font-headline-sm text-headline-sm text-slate-800 truncate group-hover:text-teal-800 transition-colors font-medium">数据库分库分表连接池内存泄漏专项排查</span>
+</div>
+<div class="col-span-2 flex items-center">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 font-label-sm text-label-sm font-medium">
+<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+<span>待办中</span>
+</span>
+</div>
+<div class="col-span-1 flex items-center gap-1">
+<span class="h-2 w-2 rounded-full bg-rose-500"></span>
+<span class="font-label-sm text-label-sm text-rose-700 font-semibold">高 (P0)</span>
+</div>
+<div class="col-span-2 flex items-center gap-space-xs">
+<img class="w-6 h-6 rounded-full object-cover shrink-0 ring-1 ring-slate-200" data-alt="Portrait of a young Asian male software architect, sharp glasses, high-tech engineering background with soft diffused lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7-0BvQ9lSE5IubKYKb0B3HBShnSEqxFdgJVblu2sDDth3C0ggvjbuV7WycCiA0Ngft237A2QojF0mVuAu-NAJESLbGcXgQpk_r7KumlTI3U46oSsO-UM_3lIw6VJpcWMzmHzuGj0vr1on8RbgR6wYp0DzlOtHaJl5E8GMnjTMAuS-SGaHak9jQtLaPrNlSm0mKHY-OdLQJtpI5m_zhyCj3P363Xi8Q-Qn0-pEUyDvLvaKBFDwcPAs1g"/>
+<span class="font-body-sm text-body-sm text-slate-800 truncate font-medium">张子涵</span>
+</div>
+<div class="col-span-1 font-body-sm text-body-sm text-slate-500 truncate">1小时前</div>
+<div class="col-span-1 flex items-center justify-end gap-1">
+<button class="view-task-action p-1 rounded-lg text-slate-500 hover:text-teal-800 hover:bg-slate-100 transition-colors" title="查看详情与编辑" type="button">
+<span class="material-symbols-outlined text-label-md">open_in_new</span>
+</button>
+<button class="quick-delete-action p-1 rounded-lg text-slate-500 hover:text-rose-700 hover:bg-rose-50 transition-colors" title="软删除任务" type="button">
+<span class="material-symbols-outlined text-label-md">delete</span>
+</button>
+</div>
+</div>
+<div class="task-row grid grid-cols-12 gap-space-sm px-space-lg py-space-md items-center hover:bg-teal-50/40 transition-colors group cursor-pointer" data-assignee="李明辉" data-deleted="false" data-id="TASK-2047" data-priority="mid" data-status="in-progress" data-title="多租户计费报表与导出任务队列解耦优化">
+<div class="col-span-5 flex items-center gap-space-sm min-w-0 pr-space-md">
+<span class="px-space-xs py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/70 font-code-xs text-code-xs font-semibold shrink-0">#2047</span>
+<span class="font-headline-sm text-headline-sm text-slate-800 truncate group-hover:text-teal-800 transition-colors font-medium">多租户计费报表与导出任务队列解耦优化</span>
+</div>
+<div class="col-span-2 flex items-center">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-teal-100/70 text-teal-900 border border-teal-200/60 font-label-sm text-label-sm font-medium">
+<span class="h-1.5 w-1.5 rounded-full bg-teal-600 animate-pulse"></span>
+<span>进行中</span>
+</span>
+</div>
+<div class="col-span-1 flex items-center gap-1">
+<span class="h-2 w-2 rounded-full bg-amber-500"></span>
+<span class="font-label-sm text-label-sm text-amber-800 font-medium">中 (P1)</span>
+</div>
+<div class="col-span-2 flex items-center gap-space-xs">
+<img class="w-6 h-6 rounded-full object-cover shrink-0 ring-1 ring-slate-200" data-alt="Portrait of Minghui Li, mid-30s Chinese male engineering lead in modern open-plan technology office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL31YcXOSDlKk0YmQWJUuhKExu8ZUdkf9CoBvjd66mZxON-yrmAQ8kjlST7QHmlEXm5XYKpM6a8QywTIVRLxfIIn8U4_aVujth-AEwcVYTIy6zSWUXwBF8vAi6WRBm314PJCMtWq2stv2aa_c1kC-cQp2po7FwoR69AX3ZaDs-Gma09tAh-DfBUMBIcl5MfcorKAhDuWPbdtV-VJU8RGzPQ6VDPeDp_8IocraWnX7QwLpkBAI5nbxtWw"/>
+<span class="font-body-sm text-body-sm text-slate-800 truncate font-medium">李明辉</span>
+</div>
+<div class="col-span-1 font-body-sm text-body-sm text-slate-500 truncate">3小时前</div>
+<div class="col-span-1 flex items-center justify-end gap-1">
+<button class="view-task-action p-1 rounded-lg text-slate-500 hover:text-teal-800 hover:bg-slate-100 transition-colors" title="查看详情与编辑" type="button">
+<span class="material-symbols-outlined text-label-md">open_in_new</span>
+</button>
+<button class="quick-delete-action p-1 rounded-lg text-slate-500 hover:text-rose-700 hover:bg-rose-50 transition-colors" title="软删除任务" type="button">
+<span class="material-symbols-outlined text-label-md">delete</span>
+</button>
+</div>
+</div>
+<div class="task-row grid grid-cols-12 gap-space-sm px-space-lg py-space-md items-center hover:bg-teal-50/40 transition-colors group cursor-pointer" data-assignee="王静" data-deleted="false" data-id="TASK-2046" data-priority="mid" data-status="completed" data-title="管理后台设计规范一致性审计与无障碍适配">
+<div class="col-span-5 flex items-center gap-space-sm min-w-0 pr-space-md">
+<span class="px-space-xs py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/70 font-code-xs text-code-xs font-semibold shrink-0">#2046</span>
+<span class="font-headline-sm text-headline-sm truncate group-hover:text-teal-800 transition-colors line-through text-slate-400">管理后台设计规范一致性审计与无障碍适配</span>
+</div>
+<div class="col-span-2 flex items-center">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/70 font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-label-sm text-emerald-700">check_circle</span>
+<span>已完成</span>
+</span>
+</div>
+<div class="col-span-1 flex items-center gap-1">
+<span class="h-2 w-2 rounded-full bg-amber-500"></span>
+<span class="font-label-sm text-label-sm text-amber-800 font-medium">中 (P1)</span>
+</div>
+<div class="col-span-2 flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-label-sm text-label-sm font-bold border border-teal-200">王</div>
+<span class="font-body-sm text-body-sm text-slate-800 truncate font-medium">王静</span>
+</div>
+<div class="col-span-1 font-body-sm text-body-sm text-slate-500 truncate">昨天</div>
+<div class="col-span-1 flex items-center justify-end gap-1">
+<button class="view-task-action p-1 rounded-lg text-slate-500 hover:text-teal-800 hover:bg-slate-100 transition-colors" title="查看详情与编辑" type="button">
+<span class="material-symbols-outlined text-label-md">open_in_new</span>
+</button>
+<button class="quick-delete-action p-1 rounded-lg text-slate-500 hover:text-rose-700 hover:bg-rose-50 transition-colors" title="软删除任务" type="button">
+<span class="material-symbols-outlined text-label-md">delete</span>
+</button>
+</div>
+</div>
+<div class="task-row grid grid-cols-12 gap-space-sm px-space-lg py-space-md items-center hover:bg-teal-50/40 transition-colors group cursor-pointer" data-assignee="赵强" data-deleted="false" data-id="TASK-2045" data-priority="low" data-status="pending" data-title="员工移动端端到端单元测试覆盖率提升至85%">
+<div class="col-span-5 flex items-center gap-space-sm min-w-0 pr-space-md">
+<span class="px-space-xs py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/70 font-code-xs text-code-xs font-semibold shrink-0">#2045</span>
+<span class="font-headline-sm text-headline-sm text-slate-800 truncate group-hover:text-teal-800 transition-colors font-medium">员工移动端端到端单元测试覆盖率提升至85%</span>
+</div>
+<div class="col-span-2 flex items-center">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 font-label-sm text-label-sm font-medium">
+<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+<span>待办中</span>
+</span>
+</div>
+<div class="col-span-1 flex items-center gap-1">
+<span class="h-2 w-2 rounded-full bg-slate-400"></span>
+<span class="font-label-sm text-label-sm text-slate-500">低 (P2)</span>
+</div>
+<div class="col-span-2 flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-label-sm text-label-sm font-bold border border-slate-300">赵</div>
+<span class="font-body-sm text-body-sm text-slate-800 truncate font-medium">赵强</span>
+</div>
+<div class="col-span-1 font-body-sm text-body-sm text-slate-500 truncate">3天前</div>
+<div class="col-span-1 flex items-center justify-end gap-1">
+<button class="view-task-action p-1 rounded-lg text-slate-500 hover:text-teal-800 hover:bg-slate-100 transition-colors" title="查看详情与编辑" type="button">
+<span class="material-symbols-outlined text-label-md">open_in_new</span>
+</button>
+<button class="quick-delete-action p-1 rounded-lg text-slate-500 hover:text-rose-700 hover:bg-rose-50 transition-colors" title="软删除任务" type="button">
+<span class="material-symbols-outlined text-label-md">delete</span>
+</button>
+</div>
+</div>
+<div class="task-row deleted-task hidden grid grid-cols-12 gap-space-sm px-space-lg py-space-md items-center bg-slate-100/50 hover:bg-slate-100 transition-colors group cursor-pointer" data-assignee="张子涵" data-deleted="true" data-id="TASK-2041" data-priority="low" data-status="deleted" data-title="旧版Redis集群迁移历史日志清除">
+<div class="col-span-5 flex items-center gap-space-sm min-w-0 pr-space-md">
+<span class="px-space-xs py-0.5 rounded bg-slate-200 text-slate-600 font-code-xs text-code-xs shrink-0">#2041</span>
+<span class="font-headline-sm text-headline-sm text-slate-400 line-through truncate">旧版Redis集群迁移历史日志清除</span>
+<span class="px-1.5 py-0.5 rounded bg-rose-100 text-rose-700 font-code-xs text-code-xs uppercase font-bold shrink-0">已软删除</span>
+</div>
+<div class="col-span-2 flex items-center">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-rose-100 text-rose-700 font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-label-sm">delete_forever</span>
+<span>不可恢复</span>
+</span>
+</div>
+<div class="col-span-1 flex items-center gap-1">
+<span class="h-2 w-2 rounded-full bg-slate-400"></span>
+<span class="font-label-sm text-label-sm text-slate-500">低 (P2)</span>
+</div>
+<div class="col-span-2 flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center font-label-sm text-label-sm font-medium">张</div>
+<span class="font-body-sm text-body-sm text-slate-400 truncate">张子涵</span>
+</div>
+<div class="col-span-1 font-body-sm text-body-sm text-slate-400 truncate">7天前</div>
+<div class="col-span-1 flex items-center justify-end gap-1">
+<button class="view-task-action p-1 rounded-lg text-slate-500 hover:text-teal-800 hover:bg-slate-200 transition-colors" title="仅供查阅详情（不可修改）" type="button">
+<span class="material-symbols-outlined text-label-md">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-md px-4 py-3 rounded-xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-space-lg">
+<span class="font-body-sm text-body-sm text-slate-500">共 <span class="font-semibold text-slate-800">128</span> 条任务，当前显示第 <span class="font-semibold text-slate-800">1</span> / 13 页</span>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-slate-500">
+<span>每页显示</span>
+<label class="sr-only" for="page-size-select">每页显示条数</label>
+<select class="bg-slate-100 px-2 py-1 rounded-lg text-slate-700 font-label-sm text-label-sm border border-slate-200/60 outline-none cursor-pointer" id="page-size-select">
+<option value="10">10条/页</option>
+<option value="20">20条/页</option>
+<option value="50">50条/页</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 disabled:opacity-30 disabled:pointer-events-none transition-colors" disabled="" type="button">
+<span class="material-symbols-outlined text-headline-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-teal-700 text-white font-label-sm text-label-sm font-semibold shadow-sm" type="button">1</button>
+<button class="w-8 h-8 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-label-sm text-label-sm transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-label-sm text-label-sm transition-colors" type="button">3</button>
+<span class="px-1 text-slate-400 font-label-sm text-label-sm">...</span>
+<button class="w-8 h-8 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-label-sm text-label-sm transition-colors" type="button">13</button>
+<button class="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors" type="button">
+<span class="material-symbols-outlined text-headline-sm">chevron_right</span>
+</button>
+</div>
+<div class="h-4 w-px bg-slate-200"></div>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-slate-500">
+<span>前往</span>
+<label class="sr-only" for="jump-page-input">输入跳转页码</label>
+<input class="w-12 px-1.5 py-1 rounded-lg bg-slate-100 text-center font-code-xs text-code-xs text-slate-800 border border-slate-200/60 outline-none focus:bg-white focus:border-teal-700" id="jump-page-input" max="13" min="1" type="number" value="1"/>
+<span>页</span>
+<button class="px-space-sm py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:bg-slate-200 transition-colors font-label-sm text-label-sm font-medium" type="button">跳转</button>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden transition-opacity" id="drawer-backdrop">
+<div class="fixed top-0 right-0 bottom-0 w-full max-w-xl bg-white shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 border-l border-slate-200" id="drawer-panel">
+<div class="flex items-center justify-between px-space-xl py-space-lg bg-slate-50 border-b border-slate-200/80">
+<div class="flex items-center gap-space-md">
+<span class="px-space-xs py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/80 font-code-sm text-code-sm font-semibold" id="drawer-task-badge">#2049</span>
+<span class="font-headline-lg text-headline-lg text-slate-900 tracking-tight font-semibold" id="drawer-title-mode">任务详情与状态编辑</span>
+</div>
+<button class="p-1.5 rounded-lg text-slate-500 hover:bg-slate-200 hover:text-slate-800 transition-colors" id="drawer-close-btn" type="button">
+<span class="material-symbols-outlined text-headline-sm">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto px-space-xl py-space-lg flex flex-col gap-space-xl">
+<div class="hidden p-space-md rounded-xl bg-rose-50 text-rose-900 border border-rose-200 flex items-start gap-space-sm" id="drawer-deleted-banner">
+<span class="material-symbols-outlined text-headline-sm shrink-0 text-rose-600">info</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold">该任务已被软删除 (Archived)</span>
+<span class="font-body-sm text-body-sm text-rose-700">普通成员不可见。当前为管理员回溯归档视图，所有字段已被系统加锁，不可编辑或重复删除。</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-slate-800 font-semibold flex items-center justify-between" for="form-title">
+<span>任务标题 <span class="text-rose-600">*</span></span>
+<span class="font-body-sm text-body-sm text-slate-500">必填项</span>
+</label>
+<input class="w-full px-space-md py-space-sm rounded-lg bg-slate-50 border border-slate-200 text-slate-900 font-body-md text-body-md outline-none focus:bg-white focus:ring-2 focus:ring-teal-700 shadow-sm transition-all" id="form-title" type="text" value="核心服务网关鉴权改造及跨域令牌流转重构"/>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-slate-800 font-semibold" for="form-status">当前状态</label>
+<select class="w-full px-space-md py-space-sm rounded-lg bg-slate-50 border border-slate-200 text-slate-900 font-body-md text-body-md outline-none cursor-pointer focus:ring-2 focus:ring-teal-700 shadow-sm" id="form-status">
+<option value="pending">待办 (Pending)</option>
+<option selected="" value="in-progress">进行中 (In Progress)</option>
+<option value="completed">已完成 (Completed)</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-slate-800 font-semibold" for="form-assignee">指派负责人</label>
+<select class="w-full px-space-md py-space-sm rounded-lg bg-slate-50 border border-slate-200 text-slate-900 font-body-md text-body-md outline-none cursor-pointer focus:ring-2 focus:ring-teal-700 shadow-sm" id="form-assignee">
+<option selected="" value="陈雅雯">陈雅雯 (Eva Chen - 我)</option>
+<option value="张子涵">张子涵 (Zihan Zhang)</option>
+<option value="李明辉">李明辉 (Minghui Li)</option>
+<option value="王静">王静 (Jing Wang)</option>
+<option value="赵强">赵强 (Qiang Zhao)</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-slate-800 font-semibold">任务优先级 <span class="text-rose-600">*</span></span>
+<div class="grid grid-cols-3 gap-space-sm">
+<label class="flex items-center justify-center gap-space-xs p-space-sm rounded-lg bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100 transition-all priority-radio">
+<input checked="" class="text-teal-700 focus:ring-0 accent-teal-700" name="drawer-priority" type="radio" value="high"/>
+<span class="h-2 w-2 rounded-full bg-rose-500"></span>
+<span class="font-label-md text-label-md text-slate-800 font-semibold">高 (P0)</span>
+</label>
+<label class="flex items-center justify-center gap-space-xs p-space-sm rounded-lg bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100 transition-all priority-radio">
+<input class="text-teal-700 focus:ring-0 accent-teal-700" name="drawer-priority" type="radio" value="mid"/>
+<span class="h-2 w-2 rounded-full bg-amber-500"></span>
+<span class="font-label-md text-label-md text-slate-700">中 (P1)</span>
+</label>
+<label class="flex items-center justify-center gap-space-xs p-space-sm rounded-lg bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100 transition-all priority-radio">
+<input class="text-teal-700 focus:ring-0 accent-teal-700" name="drawer-priority" type="radio" value="low"/>
+<span class="h-2 w-2 rounded-full bg-slate-400"></span>
+<span class="font-label-md text-label-md text-slate-700">低 (P2)</span>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-slate-800 font-semibold flex items-center justify-between" for="form-desc">
+<span>任务详细描述</span>
+<span class="font-body-sm text-body-sm text-slate-500">支持留空</span>
+</label>
+<textarea class="w-full p-space-md rounded-lg bg-slate-50 border border-slate-200 text-slate-900 font-body-md text-body-md outline-none focus:bg-white focus:ring-2 focus:ring-teal-700 shadow-sm transition-all" id="form-desc" placeholder="可填写关于该任务的上下文、技术指标或测试验收标准..." rows="5">为满足新一代微服务架构安全合规需求，需要将各子集群网关层由统一的JWT无状态验证升级至集中Redis会话与多点缓存校验。需要兼顾跨域Cookie与Token请求头双模式兼容。</textarea>
+</div>
+<div class="p-space-md rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm text-slate-500 uppercase tracking-wider font-semibold">系统元数据审计</span>
+<div class="grid grid-cols-2 gap-y-2 text-body-sm text-body-sm">
+<span class="text-slate-600">创建人：陈雅雯 (Admin)</span>
+<span class="text-slate-600">创建时间：2025-05-12 09:15</span>
+<span class="text-slate-600">最后修改：2025-05-14 14:22</span>
+<span class="text-slate-600">版本标签：v2.4-build40</span>
+</div>
+</div>
+</div>
+<div class="px-space-xl py-space-md bg-slate-50 border-t border-slate-200/80 flex items-center justify-between">
+<div class="relative">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-600 hover:text-white transition-all font-label-md text-label-md font-medium" id="drawer-delete-btn" type="button">
+<span class="material-symbols-outlined text-label-md">delete</span>
+<span>删除任务</span>
+</button>
+<div class="hidden absolute bottom-full left-0 mb-2 w-72 p-space-md rounded-xl bg-white border border-slate-200 shadow-xl flex flex-col gap-space-sm z-30" id="delete-confirm-popover">
+<div class="flex items-start gap-space-xs text-rose-600">
+<span class="material-symbols-outlined text-headline-sm shrink-0">warning</span>
+<span class="font-label-md text-label-md font-bold leading-tight">确定软删除该任务？</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-600">删除后普通成员不可见，仅管理员可在“已删除任务视图”中查阅归档信息。</p>
+<div class="flex items-center justify-end gap-space-xs mt-1">
+<button class="px-space-sm py-1 rounded-lg text-slate-600 hover:bg-slate-100 font-label-sm text-label-sm" id="cancel-delete-btn" type="button">取消</button>
+<button class="px-space-md py-1 rounded-lg bg-rose-600 text-white font-label-sm text-label-sm font-semibold shadow-sm hover:bg-rose-700" id="confirm-delete-btn" type="button">确认删除</button>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-space-sm rounded-lg text-slate-600 hover:bg-slate-200 hover:text-slate-800 transition-colors font-label-md text-label-md" id="drawer-cancel-btn" type="button">关闭</button>
+<button class="px-space-lg py-space-sm rounded-lg bg-teal-700 text-white hover:bg-teal-800 transition-all shadow-sm font-label-md text-label-md font-medium" id="drawer-save-btn" type="button">保存修改</button>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-6 right-6 px-space-md py-space-sm rounded-xl bg-slate-900 text-white font-label-md text-label-md shadow-xl flex items-center gap-space-sm z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none border border-slate-800" id="toast">
+<span class="material-symbols-outlined text-teal-300">check_circle</span>
+<span id="toast-text">操作已成功同步</span>
+</div>
+</div>
+<script>
+  (function() {
+    let currentFilter = {
+      status: 'all',
+      priority: 'all',
+      assignee: 'all',
+      showDeleted: false,
+      search: ''
+    };
+
+    const rows = document.querySelectorAll('.task-row');
+    const toggleDeleted = document.getElementById('toggle-deleted');
+    const searchInput = document.getElementById('search-input');
+    const assigneeSelect = document.getElementById('assignee-select');
+    const statusChips = document.querySelectorAll('.status-chip');
+    const priorityChips = document.querySelectorAll('.priority-chip');
+    const resetBtn = document.getElementById('reset-filters');
+
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+    const drawerPanel = document.getElementById('drawer-panel');
+    const drawerCloseBtn = document.getElementById('drawer-close-btn');
+    const drawerCancelBtn = document.getElementById('drawer-cancel-btn');
+    const drawerSaveBtn = document.getElementById('drawer-save-btn');
+    const drawerDeleteBtn = document.getElementById('drawer-delete-btn');
+    const deletePopover = document.getElementById('delete-confirm-popover');
+    const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
+    const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
+    const drawerBadge = document.getElementById('drawer-task-badge');
+    const drawerTitleInput = document.getElementById('form-title');
+    const drawerStatusSelect = document.getElementById('form-status');
+    const drawerAssigneeSelect = document.getElementById('form-assignee');
+    const drawerDescTextarea = document.getElementById('form-desc');
+    const drawerDeletedBanner = document.getElementById('drawer-deleted-banner');
+    const openNewTaskBtn = document.getElementById('open-new-task-btn');
+
+    let activeRow = null;
+
+    function applyFilters() {
+      rows.forEach(row => {
+        const status = row.dataset.status;
+        const priority = row.dataset.priority;
+        const assignee = row.dataset.assignee;
+        const isDeleted = row.dataset.deleted === 'true';
+        const title = row.dataset.title.toLowerCase();
+        const id = row.dataset.id.toLowerCase();
+
+        let visible = true;
+
+        if (isDeleted && !currentFilter.showDeleted) {
+          visible = false;
+        }
+
+        if (visible && currentFilter.status !== 'all' && status !== currentFilter.status) {
+          visible = false;
+        }
+
+        if (visible && currentFilter.priority !== 'all' && priority !== currentFilter.priority) {
+          visible = false;
+        }
+
+        if (visible && currentFilter.assignee !== 'all' && assignee !== currentFilter.assignee) {
+          visible = false;
+        }
+
+        if (visible && currentFilter.search.trim() !== '') {
+          const query = currentFilter.search.toLowerCase();
+          if (!title.includes(query) && !id.includes(query)) {
+            visible = false;
+          }
+        }
+
+        if (visible) {
+          row.classList.remove('hidden');
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+    }
+
+    statusChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        statusChips.forEach(c => {
+          c.classList.remove('active', 'bg-white', 'text-teal-800', 'font-semibold', 'shadow-xs');
+          c.classList.add('text-slate-600');
+        });
+        chip.classList.add('active', 'bg-white', 'text-teal-800', 'font-semibold', 'shadow-xs');
+        chip.classList.remove('text-slate-600');
+        currentFilter.status = chip.dataset.status;
+        applyFilters();
+      });
+    });
+
+    priorityChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        priorityChips.forEach(c => {
+          c.classList.remove('active', 'bg-white', 'text-teal-800', 'font-semibold', 'shadow-xs');
+          c.classList.add('text-slate-600');
+        });
+        chip.classList.add('active', 'bg-white', 'text-teal-800', 'font-semibold', 'shadow-xs');
+        chip.classList.remove('text-slate-600');
+        currentFilter.priority = chip.dataset.priority;
+        applyFilters();
+      });
+    });
+
+    assigneeSelect.addEventListener('change', (e) => {
+      currentFilter.assignee = e.target.value;
+      applyFilters();
+    });
+
+    toggleDeleted.addEventListener('change', (e) => {
+      currentFilter.showDeleted = e.target.checked;
+      applyFilters();
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      currentFilter.search = e.target.value;
+      applyFilters();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      currentFilter = {
+        status: 'all',
+        priority: 'all',
+        assignee: 'all',
+        showDeleted: false,
+        search: ''
+      };
+      searchInput.value = '';
+      assigneeSelect.value = 'all';
+      toggleDeleted.checked = false;
+
+      statusChips.forEach((c, idx) => {
+        if (idx === 0) {
+          c.classList.add('active', 'bg-white', 'text-teal-800', 'font-semibold', 'shadow-xs');
+          c.classList.remove('text-slate-600');
+        } else {
+          c.classList.remove('active', 'bg-white', 'text-teal-800', 'font-semibold', 'shadow-xs');
+          c.classList.add('text-slate-600');
+        }
+      });
+
+      priorityChips.forEach((c, idx) => {
+        if (idx === 0) {
+          c.classList.add('active', 'bg-white', 'text-teal-800', 'font-semibold', 'shadow-xs');
+          c.classList.remove('text-slate-600');
+        } else {
+          c.classList.remove('active', 'bg-white', 'text-teal-800', 'font-semibold', 'shadow-xs');
+          c.classList.add('text-slate-600');
+        }
+      });
+
+      applyFilters();
+      showToast('已重置全部联合筛选条件');
+    });
+
+    function openDrawer(row) {
+      activeRow = row;
+      deletePopover.classList.add('hidden');
+      const isDeleted = row ? row.dataset.deleted === 'true' : false;
+
+      if (row) {
+        drawerBadge.innerText = row.dataset.id;
+        drawerTitleInput.value = row.dataset.title;
+        drawerAssigneeSelect.value = row.dataset.assignee;
+
+        if (row.dataset.status !== 'deleted') {
+          drawerStatusSelect.value = row.dataset.status;
+        }
+
+        const prioRadios = document.querySelectorAll('input[name="drawer-priority"]');
+        prioRadios.forEach(r => {
+          r.checked = (r.value === row.dataset.priority);
+        });
+
+        if (isDeleted) {
+          drawerDeletedBanner.classList.remove('hidden');
+          drawerTitleInput.disabled = true;
+          drawerStatusSelect.disabled = true;
+          drawerAssigneeSelect.disabled = true;
+          drawerDescTextarea.disabled = true;
+          prioRadios.forEach(r => r.disabled = true);
+          drawerSaveBtn.classList.add('hidden');
+          drawerDeleteBtn.classList.add('hidden');
+        } else {
+          drawerDeletedBanner.classList.add('hidden');
+          drawerTitleInput.disabled = false;
+          drawerStatusSelect.disabled = false;
+          drawerAssigneeSelect.disabled = false;
+          drawerDescTextarea.disabled = false;
+          prioRadios.forEach(r => r.disabled = false);
+          drawerSaveBtn.classList.remove('hidden');
+          drawerDeleteBtn.classList.remove('hidden');
+        }
+      } else {
+        drawerBadge.innerText = '#NEW';
+        drawerTitleInput.value = '';
+        drawerTitleInput.placeholder = '输入新任务标题...';
+        drawerDeletedBanner.classList.add('hidden');
+        drawerTitleInput.disabled = false;
+        drawerStatusSelect.disabled = false;
+        drawerAssigneeSelect.disabled = false;
+        drawerDescTextarea.disabled = false;
+        drawerSaveBtn.classList.remove('hidden');
+        drawerDeleteBtn.classList.add('hidden');
+      }
+
+      drawerBackdrop.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        drawerPanel.classList.remove('translate-x-full');
+      });
+    }
+
+    function closeDrawer() {
+      deletePopover.classList.add('hidden');
+      drawerPanel.classList.add('translate-x-full');
+      setTimeout(() => {
+        drawerBackdrop.classList.add('hidden');
+        activeRow = null;
+      }, 300);
+    }
+
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerCancelBtn.addEventListener('click', closeDrawer);
+    drawerBackdrop.addEventListener('click', (e) => {
+      if (e.target === drawerBackdrop) closeDrawer();
+    });
+
+    openNewTaskBtn.addEventListener('click', () => {
+      openDrawer(null);
+    });
+
+    rows.forEach(row => {
+      row.addEventListener('click', (e) => {
+        if (e.target.closest('.quick-delete-action')) return;
+        openDrawer(row);
+      });
+
+      const quickDel = row.querySelector('.quick-delete-action');
+      if (quickDel) {
+        quickDel.addEventListener('click', (e) => {
+          e.stopPropagation();
+          activeRow = row;
+          openDrawer(row);
+          deletePopover.classList.remove('hidden');
+        });
+      }
+    });
+
+    drawerDeleteBtn.addEventListener('click', () => {
+      deletePopover.classList.toggle('hidden');
+    });
+
+    cancelDeleteBtn.addEventListener('click', () => {
+      deletePopover.classList.add('hidden');
+    });
+
+    confirmDeleteBtn.addEventListener('click', () => {
+      if (activeRow) {
+        activeRow.dataset.deleted = 'true';
+        activeRow.dataset.status = 'deleted';
+        activeRow.classList.add('deleted-task', 'bg-slate-100/50');
+        const titleEl = activeRow.querySelector('.font-headline-sm');
+        if (titleEl) {
+          titleEl.classList.add('line-through', 'text-slate-400');
+        }
+        applyFilters();
+        closeDrawer();
+        showToast('任务已成功软删除，可在勾选“显示已删除任务”后查看');
+      }
+    });
+
+    drawerSaveBtn.addEventListener('click', () => {
+      if (activeRow) {
+        activeRow.dataset.title = drawerTitleInput.value;
+        activeRow.dataset.status = drawerStatusSelect.value;
+        activeRow.dataset.assignee = drawerAssigneeSelect.value;
+        const selPrio = document.querySelector('input[name="drawer-priority"]:checked');
+        if (selPrio) {
+          activeRow.dataset.priority = selPrio.value;
+        }
+        const titleEl = activeRow.querySelector('.font-headline-sm');
+        if (titleEl) {
+          titleEl.innerText = drawerTitleInput.value;
+        }
+        applyFilters();
+      }
+      closeDrawer();
+      showToast('任务修改已保存');
+    });
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      toastText.innerText = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 2600);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      if (e.key === 'Escape' && !drawerBackdrop.classList.contains('hidden')) {
+        closeDrawer();
+      }
+    });
+  })();
+</script></main></div></body></html>
+
+<!-- 用户与权限管理 - 灰蓝绿毛玻璃版 -->
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-primary":"#80d5cb","background":"#f8fafc","on-tertiary":"#ffffff","surface-dim":"#e2e8f0","secondary-fixed-dim":"#cbd5e1","surface-container":"#f1f5f9","tertiary":"#0f766e","primary":"#0f766e","outline":"#64748b","on-secondary-container":"#1e293b","on-secondary-fixed":"#0f172a","on-error":"#ffffff","secondary-fixed":"#f1f5f9","surface":"#ffffff","on-secondary":"#ffffff","tertiary-container":"#134e4a","surface-container-high":"#e2e8f0","on-surface-variant":"#475569","on-tertiary-container":"#ccfbf1","error-container":"#fee2e2","on-primary-fixed":"#042f2e","on-primary-container":"#f0fdfa","on-secondary-fixed-variant":"#334155","inverse-on-surface":"#f8fafc","secondary":"#334155","tertiary-fixed":"#ccfbf1","surface-container-lowest":"#ffffff","surface-variant":"#e2e8f0","secondary-container":"#f1f5f9","outline-variant":"#cbd5e1","primary-container":"#0f766e","surface-container-highest":"#cbd5e1","on-surface":"#0f172a","on-error-container":"#7f1d1d","surface-bright":"#ffffff","surface-container-low":"#f8fafc","error":"#b91c1c","on-primary":"#ffffff","inverse-surface":"#1e293b","on-background":"#0f172a","on-tertiary-fixed":"#042f2e","surface-tint":"#0f766e","tertiary-fixed-dim":"#99f6e4","primary-fixed-dim":"#99f6e4","on-tertiary-fixed-variant":"#115e59","on-primary-fixed-variant":"#115e59","primary-fixed":"#ccfbf1"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","gutter":"1rem","space-xl":"1.5rem","space-lg":"1rem","margin":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem"},fontFamily:{"code-sm":["JetBrains Mono"],"headline-sm":["Inter"],"code-xs":["JetBrains Mono"],"body-md":["Inter"],"display-lg":["Inter"],"display-sm":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"body-lg":["Inter"],"label-sm":["Inter"]},fontSize:{"code-sm":["12px",{"lineHeight":"16px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"code-xs":["10px",{"lineHeight":"14px","letterSpacing":"0em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.025em","fontWeight":"700"}],"display-sm":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"500"}],"body-lg":["15px",{"lineHeight":"22px","letterSpacing":"-0.005em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-slate-50 font-body-md text-body-md text-slate-800"><header class="fixed top-0 left-0 right-0 h-14 bg-white/85 backdrop-blur-md border-b border-slate-200/80 z-50 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><img alt="TaskPulse Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WuvWjcMtPS6UuMrm7513h7lolopnF2uzx3aT9N2tjrVtM_ncQpI9F5On3JrkvG7MarbV5QgLoOGUHcefwZZt9nO1uXQl3Yt13yF-u0quZUES6YarJYAoW4_w8DKZqm32mgBVnWqZTKdVtROOVrxxqPIYHqlsQtoeU09yDOjbz4OtlfcQKZXOoBYT08L2k7BmrJMAef7EjrylR4_OKCLPqeDyyspXLQQyyLLhgyd5aAzkQunFxqWY2yuwk"><span class="font-headline-sm text-headline-sm text-slate-900 tracking-tight">TaskPulse 员工任务管理系统</span><span class="px-space-sm py-space-xs rounded-full bg-slate-100 text-teal-800 border border-slate-200 font-label-sm text-label-sm">v2.4.0 企业版</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-teal-50 border border-teal-200 text-teal-800 font-label-sm text-label-sm"><span class="material-symbols-outlined text-label-sm text-teal-700">admin_panel_settings</span><span class="">系统管理员 (Admin)</span></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpJ2vqYO__7ZjV2hoANLifkdq37N-yhP6EW_IQnpsmG5O6LZJnI8fXyUnwiUsd-csmhtwLfPldE620gB10FutSs7YaKGMTy6zmqw7lnTrhphLlr2OHJppIKlrawg1cFZ6akz1BZmA3ytWSO6_flxYhC7tJoyFwVM3Nr_Fb7AL4Bb-MhAztkp2xcolrGB6uZmJZZ0FPAoNz7N9ziotKp1PX-eDAIs4zgWZG2wZH8VLnYXOXtVhotcHHFA"><div class="flex flex-col text-left"><span class="font-label-md text-label-md text-slate-800 leading-none">陈雅雯 (Eva Chen)</span><span class="font-body-sm text-body-sm text-slate-500 leading-none mt-space-xs">研发效能部 / 总监</span></div></div><div class="h-5 w-px bg-slate-200"></div><button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-slate-100 text-slate-600 hover:bg-rose-50 hover:text-rose-700 transition-colors font-label-md text-label-md border border-slate-200" type="button"><span class="material-symbols-outlined text-label-md">logout</span><span class="">退出登录</span></button></div></header><aside class="fixed left-0 top-14 bottom-0 w-64 bg-slate-100/90 backdrop-blur-md border-r border-slate-200/80 z-40 flex flex-col justify-between py-space-lg px-space-md"><div class="flex flex-col gap-space-lg"><div class="px-space-sm"><span class="font-label-sm text-label-sm text-slate-500 uppercase tracking-wider font-semibold">核心业务模块</span></div><nav class="flex flex-col gap-space-xs"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-slate-600 hover:bg-slate-200/70 hover:text-slate-900 transition-colors font-label-md text-label-md" data-path="task-workbench" href="#"><span class="material-symbols-outlined text-headline-sm">task_alt</span><span class="">任务工作台</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-slate-600 hover:bg-slate-200/70 hover:text-slate-900 transition-colors font-label-md text-label-md" data-path="analytics-dashboard" href="#"><span class="material-symbols-outlined text-headline-sm">monitoring</span><span class="">任务统计看板</span></a><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm transition-colors bg-teal-700 text-white font-label-md text-label-md rounded-lg shadow-sm" data-path="user-management" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-headline-sm">manage_accounts</span><span class="">用户与权限管理</span></div><span class="px-space-xs py-0.5 rounded bg-teal-800 text-teal-100 font-code-xs text-code-xs uppercase">Admin</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-slate-600 hover:bg-slate-200/70 hover:text-slate-900 transition-colors font-label-md text-label-md" data-path="recycle-bin" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-headline-sm">delete_sweep</span><span class="">已删除任务视图</span></div><span class="px-space-xs py-0.5 rounded bg-slate-200 text-slate-600 font-code-xs text-code-xs uppercase">Admin</span></a></nav></div><div class="flex flex-col gap-space-xs p-space-md rounded-xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-slate-500">系统运行状态</span><span class="flex h-2 w-2 rounded-full bg-teal-600"></span></div><span class="font-code-sm text-code-sm text-slate-800 font-medium">Cloud Engine: OK</span><span class="font-body-sm text-body-sm text-slate-500">数据同步延迟 &lt; 12ms</span></div></aside><div class="pl-64"><main class="w-full pt-14 px-space-xl pb-space-xl bg-slate-50 min-h-screen"><div class="flex flex-col w-full">
+<div class="flex items-center justify-between py-space-md mb-space-lg"><div class="flex items-center gap-space-sm"><span class="font-headline-lg text-headline-lg text-slate-900 tracking-tight">用户与权限管理</span><span class="px-space-sm py-0.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 font-label-sm text-label-sm font-medium">受控访问体系</span></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-teal-700 text-white hover:bg-teal-800 transition-colors shadow-sm font-label-md text-label-md" id="open-create-modal-btn" type="button" onclick="document.getElementById('create-user-modal').classList.remove('hidden')"><span class="material-symbols-outlined text-headline-sm">person_add</span><span class="">+ 新增系统用户</span></button></div></div>
+<div class="grid grid-cols-12 gap-space-lg mb-space-xl">
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-space-lg">
+<div class="flex items-center justify-between p-space-md rounded-xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm">
+<div class="flex items-center gap-space-md w-full max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-8 rounded-lg bg-slate-100 text-slate-800 placeholder:text-slate-400 font-body-md text-body-md border border-slate-200 focus:outline-none focus:bg-white focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600 transition-all" id="user-search-input" placeholder="按姓名、工号、账号快速过滤..." type="text">
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-slate-400 text-[16px] hidden cursor-pointer" id="clear-search-btn">close</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-1.5 rounded-lg bg-teal-50 border border-teal-200 text-teal-800 font-label-sm text-label-sm font-medium transition-colors" id="filter-all-btn">全部 (5)</button>
+<button class="px-space-md py-1.5 rounded-lg border border-transparent text-slate-600 hover:bg-slate-100 transition-colors font-label-sm text-label-sm" id="filter-admin-btn">系统管理员 (2)</button>
+<button class="px-space-md py-1.5 rounded-lg border border-transparent text-slate-600 hover:bg-slate-100 transition-colors font-label-sm text-label-sm" id="filter-member-btn">普通成员 (3)</button>
+</div>
+</div>
+<div class="overflow-hidden rounded-xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left" id="user-roster-table">
+<thead>
+<tr class="bg-slate-100/70 border-b border-slate-200 text-slate-600 font-label-sm text-label-sm">
+<th class="py-3 px-space-md font-semibold">员工姓名 / 身份</th>
+<th class="py-3 px-space-md font-semibold">系统账号 / 工号</th>
+<th class="py-3 px-space-md font-semibold">所属角色</th>
+<th class="py-3 px-space-md font-semibold text-center">负责任务数</th>
+<th class="py-3 px-space-md font-semibold text-center">进行中 (在办)</th>
+<th class="py-3 px-space-md font-semibold">账户状态</th>
+<th class="py-3 px-space-md font-semibold">创建日期</th>
+<th class="py-3 px-space-md font-semibold text-right">操作控制</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200">
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<img alt="Eva Chen" class="w-8 h-8 rounded-full object-cover ring-2 ring-teal-600/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpJ2vqYO__7ZjV2hoANLifkdq37N-yhP6EW_IQnpsmG5O6LZJnI8fXyUnwiUsd-csmhtwLfPldE620gB10FutSs7YaKGMTy6zmqw7lnTrhphLlr2OHJppIKlrawg1cFZ6akz1BZmA3ytWSO6_flxYhC7tJoyFwVM3Nr_Fb7AL4Bb-MhAztkp2xcolrGB6uZmJZZ0FPAoNz7N9ziotKp1PX-eDAIs4zgWZG2wZH8VLnYXOXtVhotcHHFA">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-label-md text-slate-900 font-semibold">陈雅雯</span>
+<span class="px-1.5 py-0.2 rounded bg-teal-50 border border-teal-200 text-teal-800 font-code-xs text-code-xs">当前账号</span>
+</div>
+<span class="font-body-sm text-body-sm text-slate-500">研发效能部 · 总监</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-slate-800 font-medium">eva_chen</span>
+<span class="font-code-xs text-code-xs text-slate-400">EMP-90201</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-teal-50 border border-teal-200 text-teal-800 font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px] text-teal-700">shield_person</span>
+                    系统管理员
+                  </span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="font-headline-sm text-label-md text-slate-800 font-semibold">24</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-code-sm text-code-sm font-medium">6 活跃</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-teal-700 font-medium">
+<span class="h-2 w-2 rounded-full bg-teal-600"></span>
+                    正常运行
+                  </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="font-code-sm text-code-sm text-slate-500">2023-11-12</span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<span class="font-label-sm text-label-sm text-slate-400 px-2 py-1 italic">不可自注销</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-teal-100 border border-teal-200 flex items-center justify-center font-label-md text-label-md text-teal-800 font-bold">
+                      赵
+                    </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-label-md text-slate-900 font-semibold">赵强</span>
+<span class="font-body-sm text-body-sm text-slate-500">基础设施与安全 · 架构师</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-slate-800 font-medium">qiang_zhao</span>
+<span class="font-code-xs text-code-xs text-slate-400">EMP-90144</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-teal-50 border border-teal-200 text-teal-800 font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px] text-teal-700">shield_person</span>
+                    系统管理员
+                  </span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="font-headline-sm text-label-md text-slate-800">18</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-code-sm text-code-sm font-medium">3 活跃</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-teal-700 font-medium">
+<span class="h-2 w-2 rounded-full bg-teal-600"></span>
+                    正常运行
+                  </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="font-code-sm text-code-sm text-slate-500">2024-01-08</span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded text-slate-500 hover:text-teal-700 hover:bg-slate-100 transition-colors" onclick="handleResetPassword('赵强', 'qiang_zhao')" title="重置登录密码">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+<button class="p-1.5 rounded text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" onclick="handleRoleModal('赵强', 'qiang_zhao', 'admin')" title="切换权限身份">
+<span class="material-symbols-outlined text-[18px]">manage_history</span>
+</button>
+<button class="p-1.5 rounded text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors" onclick="handleToggleStatus('赵强', 'qiang_zhao', true)" title="禁用账号">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-label-md text-label-md text-slate-700 font-medium">
+                      张
+                    </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-label-md text-slate-900 font-semibold">张子涵</span>
+<span class="font-body-sm text-body-sm text-slate-500">前端工程组 · 高级开发</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-slate-800 font-medium">zihan_zhang</span>
+<span class="font-code-xs text-code-xs text-slate-400">EMP-90332</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px] text-slate-500">person</span>
+                    普通成员
+                  </span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="font-headline-sm text-label-md text-slate-800">32</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-code-sm text-code-sm font-medium">8 活跃</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-teal-700 font-medium">
+<span class="h-2 w-2 rounded-full bg-teal-600"></span>
+                    正常运行
+                  </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="font-code-sm text-code-sm text-slate-500">2024-02-15</span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded text-slate-500 hover:text-teal-700 hover:bg-slate-100 transition-colors" onclick="handleResetPassword('张子涵', 'zihan_zhang')" title="重置登录密码">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+<button class="p-1.5 rounded text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" onclick="handleRoleModal('张子涵', 'zihan_zhang', 'member')" title="切换权限身份">
+<span class="material-symbols-outlined text-[18px]">manage_history</span>
+</button>
+<button class="p-1.5 rounded text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors" onclick="handleToggleStatus('张子涵', 'zihan_zhang', true)" title="禁用账号">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-label-md text-label-md text-slate-700 font-medium">
+                      李
+                    </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-label-md text-slate-900 font-semibold">李明辉</span>
+<span class="font-body-sm text-body-sm text-slate-500">后端数据服务 · 核心工程师</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-slate-800 font-medium">minghui_li</span>
+<span class="font-code-xs text-code-xs text-slate-400">EMP-90389</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px] text-slate-500">person</span>
+                    普通成员
+                  </span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="font-headline-sm text-label-md text-slate-800">29</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-code-sm text-code-sm font-medium">5 活跃</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-teal-700 font-medium">
+<span class="h-2 w-2 rounded-full bg-teal-600"></span>
+                    正常运行
+                  </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="font-code-sm text-code-sm text-slate-500">2024-02-18</span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded text-slate-500 hover:text-teal-700 hover:bg-slate-100 transition-colors" onclick="handleResetPassword('李明辉', 'minghui_li')" title="重置登录密码">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+<button class="p-1.5 rounded text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" onclick="handleRoleModal('李明辉', 'minghui_li', 'member')" title="切换权限身份">
+<span class="material-symbols-outlined text-[18px]">manage_history</span>
+</button>
+<button class="p-1.5 rounded text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors" onclick="handleToggleStatus('李明辉', 'minghui_li', true)" title="禁用账号">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-label-md text-label-md text-slate-700 font-medium">
+                      王
+                    </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-label-md text-slate-900 font-semibold">王静</span>
+<span class="font-body-sm text-body-sm text-slate-500">产品体验与测试 · 负责人</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-slate-800 font-medium">jing_wang</span>
+<span class="font-code-xs text-code-xs text-slate-400">EMP-90402</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px] text-slate-500">person</span>
+                    普通成员
+                  </span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="font-headline-sm text-label-md text-slate-800">41</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-code-sm text-code-sm font-medium">11 活跃</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-teal-700 font-medium">
+<span class="h-2 w-2 rounded-full bg-teal-600"></span>
+                    正常运行
+                  </span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="font-code-sm text-code-sm text-slate-500">2024-03-01</span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded text-slate-500 hover:text-teal-700 hover:bg-slate-100 transition-colors" onclick="handleResetPassword('王静', 'jing_wang')" title="重置登录密码">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+<button class="p-1.5 rounded text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" onclick="handleRoleModal('王静', 'jing_wang', 'member')" title="切换权限身份">
+<span class="material-symbols-outlined text-[18px]">manage_history</span>
+</button>
+<button class="p-1.5 rounded text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors" onclick="handleToggleStatus('王静', 'jing_wang', true)" title="禁用账号">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-space-md bg-slate-100/60 border-t border-slate-200 flex items-center justify-between text-slate-600 font-label-sm text-label-sm">
+<span class="">共 5 位有效系统账户，支持全局双重身份校验</span>
+<div class="flex items-center gap-space-xs text-slate-400">
+<span class="">安全审计周期：每 24 小时增量同步</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-space-lg"><div class="p-space-lg rounded-xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm flex flex-col gap-space-md"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-slate-900 flex items-center gap-space-xs font-semibold"><span class="material-symbols-outlined text-teal-700 text-[20px]">table_chart_view</span>权限矩阵</span><span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-600 font-code-xs text-code-xs font-medium">RBAC</span></div><div class="overflow-hidden rounded-lg border border-slate-200 bg-slate-50/50"><table class="w-full text-left font-body-sm text-body-sm"><thead><tr class="text-slate-600 font-label-sm text-label-sm bg-slate-100 border-b border-slate-200"><th class="py-2 px-3">功能权限</th><th class="py-2 px-2 text-center text-teal-800 font-semibold">管理员</th><th class="py-2 px-2 text-center text-slate-500">普通成员</th></tr></thead><tbody class="divide-y divide-slate-200"><tr><td class="py-2 px-3 text-slate-700">创建 / 注销系统账户</td><td class="py-2 px-2 text-center text-teal-700 font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span></td><td class="py-2 px-2 text-center text-slate-400"><span class="material-symbols-outlined text-[16px]">cancel</span></td></tr><tr><td class="py-2 px-3 text-slate-700">查看已删除任务 (回收站)</td><td class="py-2 px-2 text-center text-teal-700 font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span></td><td class="py-2 px-2 text-center text-slate-400"><span class="material-symbols-outlined text-[16px]">cancel</span></td></tr><tr><td class="py-2 px-3 text-slate-700">编辑 / 删除他人任务</td><td class="py-2 px-2 text-center text-teal-700 font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span></td><td class="py-2 px-2 text-center text-slate-400"><span class="material-symbols-outlined text-[16px]">cancel</span></td></tr><tr><td class="py-2 px-3 text-slate-700">编辑 / 推进个人任务</td><td class="py-2 px-2 text-center text-teal-700 font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span></td><td class="py-2 px-2 text-center text-teal-700 font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span></td></tr><tr><td class="py-2 px-3 text-slate-700">跨部门统计仪表盘</td><td class="py-2 px-2 text-center text-teal-700 font-bold"><span class="material-symbols-outlined text-[16px]">check_circle</span></td><td class="py-2 px-2 text-center text-slate-400"><span class="material-symbols-outlined text-[16px]">cancel</span></td></tr></tbody></table></div></div><div class="p-space-lg rounded-xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-slate-900 flex items-center gap-space-xs font-semibold"><span class="material-symbols-outlined text-slate-700 text-[20px]">security</span>安全合规</span><div class="flex flex-col font-body-sm text-body-sm"><div class="flex items-center justify-between py-2 border-b border-slate-100"><span class="text-slate-600">双因素验证 (2FA)</span><span class="px-2 py-0.5 rounded bg-teal-50 border border-teal-200 text-teal-800 font-label-sm text-label-sm font-medium">强制开启</span></div><div class="flex items-center justify-between py-2 border-b border-slate-100"><span class="text-slate-600">密码有效周期</span><span class="font-code-sm text-code-sm text-slate-800 font-medium">90 天</span></div><div class="flex items-center justify-between py-2"><span class="text-slate-600">最新审计记录</span><span class="font-code-sm text-code-sm text-slate-600">09:24 (赵强)</span></div></div></div></div>
+</div>
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm hidden" id="create-user-modal">
+<div class="w-full max-w-lg bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl shadow-xl overflow-hidden">
+<div class="px-space-xl py-space-lg bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-teal-700 text-[24px]">person_add</span>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-semibold">创建新系统用户</h3>
+<span class="font-body-sm text-body-sm text-slate-500">为新入职或调岗员工开通企业任务系统访问凭据</span>
+</div>
+</div>
+<button class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" id="close-create-modal-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="p-space-xl flex flex-col gap-space-md" id="create-user-form">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-slate-700 font-medium flex items-center gap-1">
+<span class="">真实姓名</span>
+<span class="text-rose-600">*</span>
+</label>
+<input class="h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 placeholder:text-slate-400 font-body-md text-body-md focus:outline-none focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/20" id="new-realname" placeholder="如：周建新" required="" type="text">
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-slate-700 font-medium flex items-center gap-1">
+<span class="">系统登录用户名</span>
+<span class="text-rose-600">*</span>
+</label>
+<input class="h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 placeholder:text-slate-400 font-body-md text-body-md focus:outline-none focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/20 font-code-sm" id="new-username" placeholder="如：employee_wang" required="" type="text">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-slate-700 font-medium flex items-center gap-1">
+<span class="">所属业务部门</span>
+<span class="text-rose-600">*</span>
+</label>
+<input class="h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 placeholder:text-slate-400 font-body-md text-body-md focus:outline-none focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/20" id="new-dept" placeholder="如：产品研发部" required="" type="text">
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-slate-700 font-medium flex items-center gap-1">
+<span class="">初始安全密码</span>
+<span class="text-rose-600">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-9 pl-3 pr-10 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 placeholder:text-slate-400 font-body-md text-body-md focus:outline-none focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/20 font-code-sm" id="new-password" placeholder="至少 8 位包含字母和数字" required="" type="password">
+<button class="absolute right-2 top-2 text-slate-400 hover:text-slate-700" id="toggle-password-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+<span class="font-code-xs text-code-xs text-slate-400">用户首次登录将被强制要求修改初始密码</span>
+</div>
+<div class="flex flex-col gap-2 pt-space-xs">
+<label class="font-label-md text-label-md text-slate-700 font-medium flex items-center gap-1">
+<span class="">分配系统角色</span>
+<span class="text-rose-600">*</span>
+</label>
+<div class="grid grid-cols-2 gap-space-md">
+<label class="flex flex-col p-3 rounded-lg bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100 transition-all has-[:checked]:bg-teal-50/50 has-[:checked]:border-teal-600 has-[:checked]:ring-1 has-[:checked]:ring-teal-600">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-slate-800 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-teal-700">shield_person</span>
+                  系统管理员
+                </span>
+<input class="w-4 h-4 text-teal-700 focus:ring-teal-600" name="new-role" type="radio" value="admin">
+</div>
+<span class="font-body-sm text-body-sm text-slate-500 mt-1">全局管理权限、查看已删除任务、统筹跨人员进度与用户增删。</span>
+</label>
+<label class="flex flex-col p-3 rounded-lg bg-slate-50 border border-slate-200 cursor-pointer hover:bg-slate-100 transition-all has-[:checked]:bg-teal-50/50 has-[:checked]:border-teal-600 has-[:checked]:ring-1 has-[:checked]:ring-teal-600">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-slate-800 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-slate-700">person</span>
+                  普通成员
+                </span>
+<input checked="" class="w-4 h-4 text-teal-700 focus:ring-teal-600" name="new-role" type="radio" value="member">
+</div>
+<span class="font-body-sm text-body-sm text-slate-500 mt-1">仅可查看并维护自身指派任务，无权限查看回收站及配置用户。</span>
+</label>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-md border-t border-slate-200">
+<button class="px-space-md py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors font-label-md text-label-md border border-slate-200" id="cancel-create-btn" type="button">取消</button>
+<button class="px-space-lg py-2 rounded-lg bg-teal-700 text-white hover:bg-teal-800 transition-colors font-label-md text-label-md shadow-sm" type="submit">立即创建并分配凭据</button>
+</div>
+</form>
+</div>
+</div>
+<div class="fixed bottom-6 right-6 z-50 flex items-center gap-space-sm px-space-md py-3 rounded-lg bg-slate-900 text-white border border-slate-700 shadow-xl hidden font-body-md text-body-md" id="toast-message">
+<span class="material-symbols-outlined text-teal-400 text-[20px]" id="toast-icon">check_circle</span>
+<span id="toast-text" class="">用户操作已成功同步</span>
+</div>
+</div>
+<script>
+  function showToast(text, icon = 'check_circle') {
+    const toast = document.getElementById('toast-message');
+    const toastText = document.getElementById('toast-text');
+    const toastIcon = document.getElementById('toast-icon');
+    toastText.textContent = text;
+    toastIcon.textContent = icon;
+    toast.classList.remove('hidden');
+    setTimeout(() => {
+      toast.classList.add('hidden');
+    }, 2800);
+  }
+
+  const modal = document.getElementById('create-user-modal');
+  const openBtn = document.getElementById('open-create-modal-btn');
+  const closeBtn = document.getElementById('close-create-modal-btn');
+  const cancelBtn = document.getElementById('cancel-create-btn');
+  const form = document.getElementById('create-user-form');
+  const togglePass = document.getElementById('toggle-password-btn');
+  const passInput = document.getElementById('new-password');
+
+  openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+  const closeModal = () => modal.classList.add('hidden');
+  closeBtn.addEventListener('click', closeModal);
+  cancelBtn.addEventListener('click', closeModal);
+
+  togglePass.addEventListener('click', () => {
+    const isPass = passInput.type === 'password';
+    passInput.type = isPass ? 'text' : 'password';
+    togglePass.firstElementChild.textContent = isPass ? 'visibility_off' : 'visibility';
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('new-realname').value;
+    const username = document.getElementById('new-username').value;
+    const role = document.querySelector('input[name="new-role"]:checked').value;
+
+    const tbody = document.querySelector('#user-roster-table tbody');
+    const newTr = document.createElement('tr');
+    newTr.className = 'hover:bg-slate-50/80 transition-colors group';
+
+    const roleBadge = role === 'admin'
+      ? `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-teal-50 border border-teal-200 text-teal-800 font-label-sm text-label-sm font-medium"><span class="material-symbols-outlined text-[14px] text-teal-700">shield_person</span>系统管理员</span>`
+      : `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-label-sm text-label-sm font-medium"><span class="material-symbols-outlined text-[14px] text-slate-500">person</span>普通成员</span>`;
+
+    newTr.innerHTML = `
+      <td class="py-3.5 px-space-md">
+        <div class="flex items-center gap-space-sm">
+          <div class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-label-md text-label-md text-slate-700 font-medium">
+            ${name.slice(0, 1)}
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline-sm text-label-md text-slate-900 font-semibold">${name}</span>
+            <span class="font-body-sm text-body-sm text-slate-500">${document.getElementById('new-dept').value}</span>
+          </div>
+        </div>
+      </td>
+      <td class="py-3.5 px-space-md">
+        <div class="flex flex-col">
+          <span class="font-code-sm text-code-sm text-slate-800 font-medium">${username}</span>
+          <span class="font-code-xs text-code-xs text-slate-400">EMP-${Math.floor(10000 + Math.random() * 90000)}</span>
+        </div>
+      </td>
+      <td class="py-3.5 px-space-md">${roleBadge}</td>
+      <td class="py-3.5 px-space-md text-center"><span class="font-headline-sm text-label-md text-slate-800">0</span></td>
+      <td class="py-3.5 px-space-md text-center"><span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-500 font-code-sm text-code-sm">0</span></td>
+      <td class="py-3.5 px-space-md">
+        <span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-teal-700 font-medium">
+          <span class="h-2 w-2 rounded-full bg-teal-600"></span>正常运行
+        </span>
+      </td>
+      <td class="py-3.5 px-space-md">
+        <span class="font-code-sm text-code-sm text-slate-500">刚刚</span>
+      </td>
+      <td class="py-3.5 px-space-md text-right">
+        <div class="flex items-center justify-end gap-1">
+          <button onclick="handleResetPassword('${name}', '${username}')" title="重置登录密码" class="p-1.5 rounded text-slate-500 hover:text-teal-700 hover:bg-slate-100 transition-colors">
+            <span class="material-symbols-outlined text-[18px]">key</span>
+          </button>
+          <button onclick="handleRoleModal('${name}', '${username}', '${role}')" title="切换权限身份" class="p-1.5 rounded text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors">
+            <span class="material-symbols-outlined text-[18px]">manage_history</span>
+          </button>
+          <button onclick="handleToggleStatus('${name}', '${username}', true)" title="禁用账号" class="p-1.5 rounded text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors">
+            <span class="material-symbols-outlined text-[18px]">block</span>
+          </button>
+        </div>
+      </td>
+    `;
+
+    tbody.prepend(newTr);
+    closeModal();
+    form.reset();
+    showToast(`系统账号 [${username}] 已成功签发！`);
+  });
+
+  window.handleResetPassword = (name, username) => {
+    if (confirm(`确认重置用户 [${name} (${username})] 的密码为系统临时初始密码？`)) {
+      showToast(`已向用户 ${name} 重置临时密码并触发强制改密`, 'key');
+    }
+  };
+
+  window.handleRoleModal = (name, username, currentRole) => {
+    const targetRole = currentRole === 'admin' ? '普通成员' : '系统管理员';
+    if (confirm(`确认将员工 [${name}] 的角色调整为【${targetRole}】？生效后该账号将具备对应 RBAC 策略。`)) {
+      showToast(`用户 ${name} 权限已成功变更至：${targetRole}`, 'manage_history');
+    }
+  };
+
+  window.handleToggleStatus = (name, username, isActive) => {
+    if (confirm(`确认停用账号 [${name} (${username})]？禁用后其无法登录系统，但已分配任务仍将被保留。`)) {
+      showToast(`账号 ${username} 已被管理员封禁停用`, 'block');
+    }
+  };
+
+  const searchInput = document.getElementById('user-search-input');
+  searchInput.addEventListener('input', (e) => {
+    const val = e.target.value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#user-roster-table tbody tr');
+    rows.forEach(row => {
+      const txt = row.textContent.toLowerCase();
+      row.style.display = txt.includes(val) ? '' : 'none';
+    });
+  });
+
+  const filterAll = document.getElementById('filter-all-btn');
+  const filterAdmin = document.getElementById('filter-admin-btn');
+  const filterMember = document.getElementById('filter-member-btn');
+
+  const setFilterActive = (activeBtn) => {
+    [filterAll, filterAdmin, filterMember].forEach(btn => {
+      btn.className = 'px-space-md py-1.5 rounded-lg border border-transparent text-slate-600 hover:bg-slate-100 transition-colors font-label-sm text-label-sm';
+    });
+    activeBtn.className = 'px-space-md py-1.5 rounded-lg bg-teal-50 border border-teal-200 text-teal-800 font-label-sm text-label-sm font-medium transition-colors';
+  };
+
+  filterAll.addEventListener('click', () => {
+    setFilterActive(filterAll);
+    document.querySelectorAll('#user-roster-table tbody tr').forEach(r => r.style.display = '');
+  });
+
+  filterAdmin.addEventListener('click', () => {
+    setFilterActive(filterAdmin);
+    document.querySelectorAll('#user-roster-table tbody tr').forEach(r => {
+      r.style.display = r.textContent.includes('系统管理员') ? '' : 'none';
+    });
+  });
+
+  filterMember.addEventListener('click', () => {
+    setFilterActive(filterMember);
+    document.querySelectorAll('#user-roster-table tbody tr').forEach(r => {
+      r.style.display = r.textContent.includes('普通成员') ? '' : 'none';
+    });
+  });
+</script></main></div>
+
+</body></html>
