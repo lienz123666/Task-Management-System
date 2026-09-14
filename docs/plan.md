@@ -117,6 +117,8 @@
 
 验收：上述每条边界各执行一次请求确认。
 
+测试：`backend/tests/test_tasks.py`、`test_permissions.py` 覆盖创建校验、PUT/PATCH 差异、成员/管理员权限、负责人变更立即失权、软删除可见性与重复删除 404。
+
 ---
 
 ## 5. 列表查询与统计

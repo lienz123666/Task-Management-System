@@ -8,7 +8,7 @@ from sqlalchemy.exc import IntegrityError, OperationalError
 from app.config import get_settings
 from app.crud import user as crud_user
 from app.database import Base, SessionLocal, engine
-from app.routers import auth, health, users
+from app.routers import auth, health, tasks, users
 
 logging.basicConfig(
     level=logging.INFO,
@@ -72,6 +72,7 @@ def create_app() -> FastAPI:
     app.include_router(health.router, prefix=settings.api_prefix)
     app.include_router(auth.router, prefix=settings.api_prefix)
     app.include_router(users.router, prefix=settings.api_prefix)
+    app.include_router(tasks.router, prefix=settings.api_prefix)
     return app
 
 
