@@ -111,22 +111,8 @@ class TaskListOut(BaseModel):
     page_size: int
 
 
-class AssigneeStat(BaseModel):
-    user_id: int
-    username: str
-    count: int
-
-
-class PriorityStats(BaseModel):
-    high: int
-    medium: int
-    low: int
-
-
 class StatsOut(BaseModel):
     total: int
     todo: int
     doing: int
     done: int
-    priority: PriorityStats
-    assignees: list[AssigneeStat]
