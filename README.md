@@ -4,7 +4,7 @@
 
 远程仓库：<https://github.com/lienz123666/Task-Management-System.git>
 
-接口说明：[`docs/api.md`](docs/api.md) · 需求：[`docs/需求分析.md`](docs/需求分析.md)>
+接口说明：[`docs/api.md`](docs/api.md) · 需求：[`docs/需求分析.md`](docs/需求分析.md) · 测试报告：[`docs/test-report.md`](docs/test-report.md) · 排障：[`docs/troubleshooting.md`](docs/troubleshooting.md) · AI 评审：[`docs/ai-review.md`](docs/ai-review.md)
 
 ## 本地启动
 
