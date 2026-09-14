@@ -67,6 +67,12 @@ uv run pytest
 
 ## 其他常见情况
 
+### `./deploy.sh` 立刻失败
+
+- **`$'\r': command not found`：** 脚本是 Windows 换行。应在 Linux 上 `git clone`，不要从 Windows 拷贝；或 `sed -i 's/\r$//' deploy.sh`。
+- **未找到 docker compose / curl：** 安装 `docker-compose-plugin` 和 `curl`。只装了 Docker Engine 不够。
+- **`.env` 含 `@` `:` `/` `#`：** 改密码后再启动，否则 `DATABASE_URL` 会被拆断。
+
 ### 容器起不来
 
 - **db 一直 unhealthy：** `.env` 的 `POSTGRES_USER` / `POSTGRES_PASSWORD` / `POSTGRES_DB` 必须与**第一次**初始化 volume 时一致。Postgres 只在空数据卷上读这些变量，改密码后继续用旧 `pgdata` 会认证失败。处理：改回原值，或（会丢数据）`docker compose down -v` 后重建。

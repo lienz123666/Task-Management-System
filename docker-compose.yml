@@ -26,6 +26,7 @@ services:
       db:
         condition: service_healthy
     ports:
+      # 调试 OpenAPI：http://<主机>:8000/docs ；上线不需要时可删掉下面这一行
       - "8000:8000"
     restart: unless-stopped
 

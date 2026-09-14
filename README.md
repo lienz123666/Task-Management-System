@@ -63,10 +63,12 @@ uv run pytest
 git clone https://github.com/lienz123666/Task-Management-System.git
 cd Task-Management-System
 cp .env.example .env
-# 编辑 .env：设置 JWT_SECRET、ADMIN_PASSWORD、POSTGRES_PASSWORD
+# 编辑 .env：JWT_SECRET、ADMIN_PASSWORD、POSTGRES_PASSWORD（不要含 @ : / #）
 chmod +x deploy.sh
 ./deploy.sh
 ```
+
+请在服务器上 clone，不要从 Windows 拷贝工作区。密码特殊字符、防火墙、Debian/Ubuntu 源等说明见部署文档。
 
 对外访问 `http://<服务器>:8080`。JWT 默认 24 小时过期。故障排查见 [`docs/troubleshooting.md`](docs/troubleshooting.md)，接口约定见 [`docs/api.md`](docs/api.md)。
 
